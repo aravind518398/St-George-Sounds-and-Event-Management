@@ -1,5 +1,9 @@
 import Carousel from "../../components/Carousel";
+import Count from "../../components/ui/Count";
 import Navbar from "../../components/Navbar";
+import Youtube from "../../components/Youtube";
+import Service from "../../components/Service";
+
 
 
 export default function Home() {
@@ -7,6 +11,10 @@ export default function Home() {
   <>
   <Navbar/>
   <Carousel/>
+  <Count/>
+  <Youtube/>
+  <Service/>
+  
   </>
   );
 }

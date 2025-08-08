@@ -35,13 +35,15 @@ export default function Carousel() {
                         transition={{ delay:0.5,duration: 5 }}
                     >
                         <Image
-                            className="h-[80vh] w-full object-cover brightness-78"
+                            className="h-[68vh] w-full object-cover brightness-90"
                             src={slide.src}
                             alt={slide.alt}
                         />
                     </motion.div>
                 </SwiperSlide>
             ))}
+        
         </Swiper>
     );
 }
+
