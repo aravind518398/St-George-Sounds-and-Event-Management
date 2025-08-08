@@ -3,7 +3,7 @@ import Count from "../../components/ui/Count";
 import Navbar from "../../components/Navbar";
 import Youtube from "../../components/Youtube";
 import Service from "../../components/Service";
-
+import Contact from "../../components/Contact";
 
 
 export default function Home() {
@@ -14,6 +14,7 @@ export default function Home() {
   <Count/>
   <Youtube/>
   <Service/>
+  <Contact/>
   
   </>
   );
