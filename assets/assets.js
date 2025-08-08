@@ -7,7 +7,7 @@ import traditional_dance from './traditional-dance.jpg';
 import birthday_girl from './birthday-girl.jpg';
 import seminar from './seminar.jpg';
 import beautiful_woman from './beautiful-woman.jpg';
-
+import footer_img from './footer.jpg';
 
 
 
@@ -26,4 +26,5 @@ export const assets = {
     birthday_girl,
     seminar,
     beautiful_woman,
+    footer_img,
 }
