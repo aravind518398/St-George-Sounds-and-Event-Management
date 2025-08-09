@@ -8,7 +8,7 @@ import birthday_girl from './birthday-girl.jpg';
 import seminar from './seminar.jpg';
 import beautiful_woman from './beautiful-woman.jpg';
 import footer_img from './footer.jpg';
-
+import close_icon from './close-white.png';
 
 
 
@@ -27,4 +27,5 @@ export const assets = {
     seminar,
     beautiful_woman,
     footer_img,
+    close_icon,
 }

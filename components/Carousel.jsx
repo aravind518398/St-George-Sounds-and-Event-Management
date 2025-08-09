@@ -12,17 +12,18 @@ export default function Carousel() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const slides = [
+        { src: assets.sea_vibe, alt: "sea_vibe" },
         { src: assets.beautifull_photozone, alt: "beautifull_photozone" },
         { src: assets.fresh_rose_flowers, alt: "fresh_rose_flowers" },
         { src: assets.green_garden, alt: "green_garden" },
-        { src: assets.sea_vibe, alt: "sea_vibe" },
+        
     ];
 
     return (
         <Swiper
             modules={[Autoplay]}
             loop={true}
-            spaceBetween={40}
+            
             slidesPerView={1}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -35,7 +36,7 @@ export default function Carousel() {
                         transition={{ delay:0.5,duration: 5 }}
                     >
                         <Image
-                            className="h-[68vh] w-full object-cover brightness-90"
+                            className="h-[68vh] w-full object-cover "
                             src={slide.src}
                             alt={slide.alt}
                         />

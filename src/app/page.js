@@ -5,6 +5,7 @@ import Youtube from "../../components/Youtube";
 import Service from "../../components/Service";
 import Contact from "../../components/Contact";
 import Footer from "../../components/Footer";
+import Whatsapp from "../../components/ui/Whatsapp";
 
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
   <Youtube/>
   <Service/>
   <Footer/>
-  
+  <Whatsapp/>
   </>
   );
 }

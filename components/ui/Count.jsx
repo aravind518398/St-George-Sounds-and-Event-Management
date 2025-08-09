@@ -14,7 +14,7 @@ function AnimatedCounter({ targetValue, suffix = "", duration = 3000, decimals =
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             
-            // Easing function for smooth animation
+            // Easing for smooth animation
             const easeOut = 1 - Math.pow(1 - progress, 3);
             const currentCount = easeOut * targetValue;
             
@@ -26,11 +26,10 @@ function AnimatedCounter({ targetValue, suffix = "", duration = 3000, decimals =
         };
 
         animationFrame = requestAnimationFrame(animate);
-
         return () => cancelAnimationFrame(animationFrame);
     }, [targetValue, duration]);
 
-    // Format the number based on decimals
+    // Format the number
     const formatNumber = (num) => {
         if (decimals > 0) {
             return num.toFixed(decimals);
@@ -45,37 +44,39 @@ function AnimatedCounter({ targetValue, suffix = "", duration = 3000, decimals =
     );
 }
 
-// Main Component with all counters
+// Main Component
 export default function StatsSection() {
     return (
-        <div className="flex justify-between mx-2 md:mx-30 my-20">
-            <div>
-                <h1 className="text-center text-2xl md:text-4xl lg:text-6xl">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center px-4 sm:px-8 lg:px-20 py-10" >
+            
+            <div className=" py-2  lg:py-16">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
                     <AnimatedCounter targetValue={15} suffix="+" />
                 </h1>
-                <span className="text-center text-1xl lg:text-2xl">Years of Experience</span>
+                <span className="text-base sm:text-lg lg:text-2xl">Years of Experience</span>
             </div>
             
-            <div>
-                <h1 className="text-center text-2xl md:text-4xl lg:text-6xl">
+            <div className=" py-2 lg:py-16">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
                     <AnimatedCounter targetValue={1.7} suffix="K+" decimals={1} />
                 </h1>
-                <span className="text-center text-1xl lg:text-2xl">Events Covered</span>
+                <span className="text-base sm:text-lg lg:text-2xl">Events Covered</span>
             </div>
             
-            <div>
-                <h1 className="text-center text-2xl md:text-4xl lg:text-6xl">
+            <div className=" py-2 lg:py-16">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
                     <AnimatedCounter targetValue={1.5} suffix="K+" decimals={1} />
                 </h1>
-                <span className="text-center text-1xl lg:text-2xl">Satisfied Clients</span>
+                <span className="text-base sm:text-lg lg:text-2xl">Satisfied Clients</span>
             </div>
             
-            <div>
-                <h1 className="text-center text-2xl md:text-4xl lg:text-6xl">
+            <div className=" py-2 lg:py-16">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
                     <AnimatedCounter targetValue={4.8} decimals={1} />
                 </h1>
-                <span className="text-center text-1xl lg:text-2xl">Customer Rating</span>
+                <span className="text-base sm:text-lg lg:text-2xl">Customer Rating</span>
             </div>
+
         </div>
     );
 }
