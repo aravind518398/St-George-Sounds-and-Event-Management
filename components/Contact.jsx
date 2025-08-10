@@ -8,6 +8,8 @@ config.autoAddCss = false
 import Image from "next/image"
 import { assets } from "../assets/assets"
 import { useState } from "react"
+import GoogleMap from "./GoogleMap"
+import { motion } from "framer-motion"
 
 
 export default function Contact() {
@@ -44,14 +46,18 @@ export default function Contact() {
                         {/* Left Section - Contact Info */}
                         <div className="mt-8 mx-4 ">
                             <h1 className="text-lg sm:text-xl md:text-2xl pb- md:pb-10 text-[#674188]"
-                                style={{ fontFamily: "Verdana" }}>
+                                style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                 COMPANY LOGO
                             </h1>
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold pb-6 md:pb-10 leading-tight"
-                                style={{ fontFamily: "Verdana" }}>
+                                style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                 WANT TO WORK WITH US?
                             </h1>
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-6 md:pb-10">
+                            <motion.div
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6}}
+                                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-6 md:pb-10">
                                 <FontAwesomeIcon
                                     icon={faPhoneVolume}
                                     color="#674188"
@@ -59,14 +65,18 @@ export default function Contact() {
                                     className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 mt-1 sm:mt-0"
                                 />
                                 <div>
-                                    <h3 className="text-sm sm:text-base" style={{ fontFamily: "Verdana" }}>
+                                    <h3 className="text-sm sm:text-base" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                         TALK TO OUR SUPPORT TEAM
                                         <br />
                                         <span className="font-bold text-base sm:text-lg">+91-9567797440</span>
                                     </h3>
                                 </div>
-                            </div>
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-6 md:pb-10">
+                            </motion.div>
+                            <motion.div
+                             initial={{opacity:0, y:100}}
+                                animate={{opacity:1, y:0}}
+                                transition={{duration:0.9}}
+                            className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-6 md:pb-10">
                                 <FontAwesomeIcon
                                     icon={faEnvelope}
                                     color="#674188"
@@ -74,14 +84,18 @@ export default function Contact() {
                                     className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 mt-1 sm:mt-0"
                                 />
                                 <div>
-                                    <h3 className="text-sm sm:text-base" style={{ fontFamily: "Verdana" }}>
+                                    <h3 className="text-sm sm:text-base" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                         EMAIL OUR SUPPORT TEAM
                                         <br />
                                         <span className="font-bold text-base sm:text-lg">support@company.com</span>
                                     </h3>
                                 </div>
-                            </div>
-                            <div className="flex gap-4 sm:gap-6 md:gap-10">
+                            </motion.div>
+                            <motion.div
+                             initial={{opacity:0, y:100}}
+                                animate={{opacity:1, y:0}}
+                                transition={{duration:1.2 }}
+                            className="flex gap-4 sm:gap-6 md:gap-10">
                                 <Image
                                     src={assets.insta_icon}
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
@@ -97,14 +111,14 @@ export default function Contact() {
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
                                     alt="Facebook icon"
                                 />
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Right Section - Contact Form */}
                         <div className="mt-8 lg:mt-0">
                             <div className="bg-gray-50 p-6 sm:p-8 rounded-lg ">
                                 <h2 className="text-xl sm:text-2xl font-bold mb-6 text-[#674188]"
-                                    style={{ fontFamily: "Verdana" }}>
+                                    style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                     GET IN TOUCH
                                 </h2>
 
@@ -166,7 +180,7 @@ export default function Contact() {
                                         <button
                                             type="submit"
                                             className="w-full bg-[#674188] text-white py-3 px-6 rounded-lg font-bold hover:bg-[#5a3674]  text-sm sm:text-base"
-                                            style={{ fontFamily: "Verdana" }}
+                                            style={{ fontFamily: "Verdana, Geneva, sans-serif" }}
                                         >
                                             SEND MESSAGE
                                         </button>
@@ -177,6 +191,7 @@ export default function Contact() {
                         </div>
                     </div>
                 </div>
+                <GoogleMap />
             </div>
         </>
     )

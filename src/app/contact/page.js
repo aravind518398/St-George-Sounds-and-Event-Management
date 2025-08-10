@@ -9,13 +9,16 @@ import Whatsapp from "../../../components/ui/Whatsapp";
 
 
 
+
+
 export default function ContactPage() {
     return (
         <>
         <BackgroundImage/>
         
         <Navbar/>
-<Contact />
+        <Contact />
+        
         <Footer/>
         <Whatsapp/>
         

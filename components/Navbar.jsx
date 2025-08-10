@@ -21,7 +21,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between px-2 sm:px-4">
                 {/* Company Logo */}
                 <a href={"/"} onClick={() => (location.reload())}>
-                    <h1 className="text-white text-lg sm:text-xl md:text-2xl cursor-pointer whitespace-nowrap" style={{ fontFamily: "Verdana" }}>
+                    <h1 className="text-white text-lg sm:text-xl md:text-2xl cursor-pointer whitespace-nowrap" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                         COMPANY LOGO
                     </h1>
                 </a>
@@ -74,7 +74,7 @@ export default function Navbar() {
                     <motion.button
                         initial={{ y: -80 }}
                         animate={{ y: 0 }}
-                        className="hidden lg:flex justify-center items-center bg-gradient-to-br from-[#c538e9] to-[#450255] text-[#ededed] rounded-3xl px-3 xl:px-5 py-2 gap-1 border hover:from-[#450255] hover:to-[#c538e9] transition-all duration-500 text-sm xl:text-base whitespace-nowrap"
+                        className="hidden lg:flex justify-center items-center bg-gradient-to-br from-[#a920cb]/80 to-[#450255]/80 text-[#ededed] rounded-3xl px-3 xl:px-5 py-2 gap-1 border hover:from-[#450255]/80 hover:to-[#a920cb]/80 transition-all duration-500 text-sm xl:text-base whitespace-nowrap"
                     >
                         <FontAwesomeIcon icon={faPhone} className="text-shadow-white" style={{ width: "16px" }} />
                         <span className="xl:inline">+91 9567797440</span>

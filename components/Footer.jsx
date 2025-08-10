@@ -50,14 +50,14 @@ export default function Footer() {
 
                 {/* Company Logo */}
                 <div className="px-4">
-                    <h1 className="text-2xl md:text-3xl text-white py-6 md:py-12 text-center" style={{ fontFamily: "Courier" }}>
+                    <h1 className="text-2xl md:text-3xl text-white py-6 md:py-12 text-center" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                         COMPANY LOGO
                     </h1>
                 </div>
 
                 {/* Description */}
                 <div className="flex justify-center px-4 mb-8">
-                    <p className="text-white text-sm md:text-base max-w-[350px] md:max-w-[600px] lg:max-w-[900px] text-center leading-relaxed" style={{ fontFamily: "Courier" }}>
+                    <p className="text-white text-sm md:text-base max-w-[350px] md:max-w-[600px] lg:max-w-[900px] text-center leading-relaxed" style={{ fontFamily: "Verdana" }}>
                         Planning a full event has never been easier! St George® Event Management, an ISO 9001:2015 Certified Event Management Company based in Kerala state, India, offers a wide range of services to make your events stress-free and memorable across Kerala. From premium corporate events and destination wedding planning to small-scale birthday parties and private gatherings, you can be sure we have it all covered. With offices in Kochi, Thrissur, Calicut, and Trivandrum, we also specialize in venue selections, booking, and hospitality services. We primarily serve Keralites, Malayalees, and those looking to plan destination events in Kerala. We exclusively operate within Kerala. Whether you are planning a destination wedding event or a local celebration in Kerala, India, St George® is here to help.
                     </p>
                 </div>
@@ -65,8 +65,8 @@ export default function Footer() {
                 {/* Footer Tables - Mobile Responsive */}
                 <div className="flex flex-col md:flex-row justify-center items-start  px-4 gap-4 md:gap-0">
                     <FooterTable heading={"QUICK LINK"} items={["Home", "About", "Gallery", "Contact"]}  />
-                    <FooterTable heading={"SERVICES"} items={["Corporate Events", "Wedding Photography", "Event Planning"]} />
-                    <FooterTable heading={"CONTACT INFO"} items={["Email: contact@example.com", "Phone: +1234567890", "Address: 123 Street"]} />
+                    <FooterTable heading={"SERVICES"} items={["Corporate Events", "Wedding Photography", "Event Planning", "Birthday Photography"]} />
+                    <FooterTable heading={"CONTACT INFO"} items={[,"Email: contact@example.com", "Phone: +1234567890", "Address: Aruvithura, Kottayam, Erattupetta, Kerala 686122"]} />
                 </div>
 
                 {/* Contact Information */}
@@ -100,9 +100,9 @@ export default function Footer() {
 export function FooterTable({ heading, items }) {
     const links=["/", "/about", "/gallery", "/contact"]
     return (
-        <div className="text-white w-full md:w-[200px] py-6 md:py-8 text-center md:text-left">
+        <div className="text-white w-full md:w-[210px] py-6 md:py-8 text-center md:text-left">
             <h1 className="text-lg md:text-xl font-semibold mb-4 text-white/90">{heading}</h1>
-            <ul className="space-y-2 text-sm md:text-base" style={{ fontFamily: "Courier, monospace" }}>
+            <ul className="space-y-2 text-sm md:text-base" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                 {items?.map((value, index) => (
                     <li key={index}>
                             <Link href={links ? links[index]: "#"} className="cursor-pointer hover:text-purple-400 transition-colors duration-200 block break-words">  {value}</Link>

@@ -3,7 +3,7 @@ import Count from "../../components/ui/Count";
 import Navbar from "../../components/Navbar";
 import Youtube from "../../components/Youtube";
 import Service from "../../components/Service";
-import Contact from "../../components/Contact";
+
 import Footer from "../../components/Footer";
 import Whatsapp from "../../components/ui/Whatsapp";
 
