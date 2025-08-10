@@ -64,7 +64,7 @@ export default function Navbar() {
                                 ? 'text-[#780794dc] font-semibold'
                                 : 'hover:text-[#780794dc]/80'
                             }`}>
-                            CONTACT US
+                            CONTACT
                         </li>
                     </Link>
                 </motion.ul>
@@ -111,7 +111,7 @@ export function MobileNavbar({isClicked, handleClick}) {
         
         className={`lg:hidden absolute top-15 left-0 w-full text-white ${isClicked ? "": "hidden" }`}>
             <ul className="w-full">
-                <Link onClick={handleClick} href={"/"} className="block w-full bg-white/60  "><li className={`w-full p-3 ${pathname === '/'
+                <Link onClick={handleClick} href={"/"} className="block w-full "><li className={`w-full p-3 ${pathname === '/'
                                 ? 'text-[#780794dc] font-semibold bg-white/60'
                                 : 'hover:text-[#780794dc]/80   bg-black/60 hover:bg-white/70'
                             }`}>HOME</li></Link>

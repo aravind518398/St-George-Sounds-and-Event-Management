@@ -9,10 +9,10 @@ import seminar from './seminar.jpg';
 import beautiful_woman from './beautiful-woman.jpg';
 import footer_img from './footer.jpg';
 import close_icon from './close-white.png';
-
-
-
-
+import event_management from './event-management.jpg'
+import insta_icon from './insta-icon.png';
+import youtube_icon from './youtube-icon.png';
+import logo_facebook from './logo-facebook.png';
 
 
 
@@ -28,4 +28,9 @@ export const assets = {
     beautiful_woman,
     footer_img,
     close_icon,
+    event_management,
+    insta_icon,
+    youtube_icon,
+    logo_facebook,
+
 }

@@ -5,6 +5,7 @@ import { assets } from "../assets/assets"
 import { faFacebook, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
     const backgroundImg = assets.footer_img.src
@@ -22,24 +23,24 @@ export default function Footer() {
                     <ul className="flex gap-8 md:gap-20 justify-center">
                         <a target="_blank" href="#">
                             <motion.li
-                                initial={{scale:1}}
-                                whileHover={{scale:0.9}}
+                                initial={{ scale: 1 }}
+                                whileHover={{ scale: 0.9 }}
                             >
                                 <FontAwesomeIcon icon={faInstagram} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
                         </a>
                         <a target="_blank" href="#">
                             <motion.li
-                                initial={{scale:1}}
-                                whileHover={{scale:0.9}}
+                                initial={{ scale: 1 }}
+                                whileHover={{ scale: 0.9 }}
                             >
                                 <FontAwesomeIcon icon={faYoutube} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
                         </a>
                         <a target="_blank" href="#">
                             <motion.li
-                                initial={{scale:1}}
-                                whileHover={{scale:0.9}}
+                                initial={{ scale: 1 }}
+                                whileHover={{ scale: 0.9 }}
                             >
                                 <FontAwesomeIcon icon={faFacebook} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
@@ -63,7 +64,7 @@ export default function Footer() {
 
                 {/* Footer Tables - Mobile Responsive */}
                 <div className="flex flex-col md:flex-row justify-center items-start  px-4 gap-4 md:gap-0">
-                    <FooterTable heading={"QUICK LINK"} items={["Home", "About", "Gallery", "Contact"]} />
+                    <FooterTable heading={"QUICK LINK"} items={["Home", "About", "Gallery", "Contact"]}  />
                     <FooterTable heading={"SERVICES"} items={["Corporate Events", "Wedding Photography", "Event Planning"]} />
                     <FooterTable heading={"CONTACT INFO"} items={["Email: contact@example.com", "Phone: +1234567890", "Address: 123 Street"]} />
                 </div>
@@ -78,16 +79,16 @@ export default function Footer() {
                                 +91-9567797440
                             </li>
                             <li className="flex items-center gap-2 cursor-pointer">
-                                <FontAwesomeIcon icon={faEnvelope} color="white"/>
+                                <FontAwesomeIcon icon={faEnvelope} color="white" />
                                 example@gmail.com
                             </li>
                         </ul>
                     </div>
-                    <hr className="border-white/30"/>
+                    <hr className="border-white/30" />
                 </div>
 
                 {/* Copyright */}
-                <div className="text-white text-xs md:text-sm flex flex-col md:flex-row justify-between items-center py-6 px-4 md:px-10 gap-4">
+                <div className="text-white text-xs md:text-sm flex flex-col md:flex-row justify-between items-center py-6 px-4 md:px-10 gap-4 lg:mx-30">
                     <p>© 2008–2025 St George Event Management. All Rights Reserved.</p>
                     <p>Powered by <a href="" className="text-blue-400 hover:text-blue-300">aravindrkrishnan280@gmail.com</a></p>
                 </div>
@@ -97,18 +98,14 @@ export default function Footer() {
 }
 
 export function FooterTable({ heading, items }) {
+    const links=["/", "/about", "/gallery", "/contact"]
     return (
         <div className="text-white w-full md:w-[200px] py-6 md:py-8 text-center md:text-left">
             <h1 className="text-lg md:text-xl font-semibold mb-4 text-white/90">{heading}</h1>
             <ul className="space-y-2 text-sm md:text-base" style={{ fontFamily: "Courier, monospace" }}>
                 {items?.map((value, index) => (
                     <li key={index}>
-                        <a 
-                            href="#" 
-                            className="cursor-pointer hover:text-purple-400 transition-colors duration-200 block break-words"
-                        >
-                            {value}
-                        </a>
+                            <Link href={links ? links[index]: "#"} className="cursor-pointer hover:text-purple-400 transition-colors duration-200 block break-words">  {value}</Link>
                     </li>
                 ))}
             </ul>
