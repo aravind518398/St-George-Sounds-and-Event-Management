@@ -21,9 +21,11 @@ export default function Footer() {
                 <div className="px-4 py-6">
                     {/* Social Media Icons */}
                     <ul className="flex gap-8 md:gap-20 justify-center">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://www.instagram.com/s_g_events_aruvithura?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                             <motion.li
-                                initial={{ scale: 1 }}
+                                initial={{ scale: 1, opacity:0.5 }}
+                                whileInView={{opacity:1}}
+                                transition={{duration:0.2}}
                                 whileHover={{ scale: 0.9 }}
                             >
                                 <FontAwesomeIcon icon={faInstagram} color="white" size="xl" className="hover:text-purple-400" />
@@ -31,7 +33,9 @@ export default function Footer() {
                         </a>
                         <a target="_blank" href="#">
                             <motion.li
-                                initial={{ scale: 1 }}
+                               initial={{ scale: 1, opacity:0.5 }}
+                                whileInView={{opacity:1}}
+                                transition={{duration:0.2}}
                                 whileHover={{ scale: 0.9 }}
                             >
                                 <FontAwesomeIcon icon={faYoutube} color="white" size="xl" className="hover:text-purple-400" />
@@ -39,7 +43,9 @@ export default function Footer() {
                         </a>
                         <a target="_blank" href="#">
                             <motion.li
-                                initial={{ scale: 1 }}
+                               initial={{ scale: 1, opacity:0.5 }}
+                                whileInView={{opacity:1}}
+                                transition={{duration:0.2}}
                                 whileHover={{ scale: 0.9 }}
                             >
                                 <FontAwesomeIcon icon={faFacebook} color="white" size="xl" className="hover:text-purple-400" />

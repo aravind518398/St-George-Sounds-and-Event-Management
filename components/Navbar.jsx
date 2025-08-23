@@ -31,7 +31,7 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <motion.ul
                     initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.2, type: "spring", stiffness: 100 }}
                     className="hidden lg:flex gap-6 xl:gap-10 text-[#171717] cursor-pointer bg-white/80 rounded-full px-6 xl:px-12 py-3 text-sm xl:text-base"
                 >
