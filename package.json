@@ -15,6 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.2.3",
     "@supabase/supabase-js": "^2.56.0",
     "framer-motion": "^12.23.12",
+    "googleapis": "^157.0.0",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
