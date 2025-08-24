@@ -8,13 +8,11 @@ import Gallery from '../../../components/Gallery'
 import { assets } from '../../../assets/assets'
 
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
     const sea_vibe = assets.sea_vibe.src;
     
-
-  
-
-  return (
+ try {
+   return (
     <>
     <BackgroundImage src={sea_vibe}/>
     <Navbar/>
@@ -23,5 +21,14 @@ export default function GalleryPage() {
     <Whatsapp/>
     </>
   )
+    
+  } catch (error) {
+    console.error('Supabase error:', error)
+    return <div>Gallery temporarily unavailable</div>
+  }
 }
+  
+
+ 
+
 
