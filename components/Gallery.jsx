@@ -11,6 +11,7 @@ export default function Gallery() {
     const [videos, setVideos] = useState([]);
     const [shorts, setShorts] = useState([]);
     const [albums, setAlbums] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const tabs = [
         { id: 'photos', label: 'Photo Gallery', data: images },
@@ -38,7 +39,7 @@ export default function Gallery() {
 
                 return publicUrl.publicUrl;
             });
-
+            setIsLoading(false);
             setImages(urls);
         };
 
@@ -49,6 +50,7 @@ export default function Gallery() {
                 console.log(error);
             } else {
                 console.log("Fetched data:", data)
+                setIsLoading(false);
                 setVideos(data);
             }
 
@@ -61,6 +63,7 @@ export default function Gallery() {
                 console.log(error);
             } else {
                 console.log("Fetched data:", data)
+                setIsLoading(false);
                 setShorts(data);
             }
         };
@@ -82,7 +85,8 @@ export default function Gallery() {
             case 'photos':
                 return (
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
-                        {currentData?.map((urls, i) => (
+                        
+                        { isLoading ? (<p>Loading....</p> )  : ( currentData?.map((urls, i) => (
                             <div key={i} className="w-full  sm:h-52 md:h-56 lg:h-60 rounded-2xl overflow-hidden">
                                 <Image
                                     src={urls}
@@ -94,7 +98,7 @@ export default function Gallery() {
                                     className="w-full h-full object-cover rounded-2xl"
                                 />
                             </div>
-                        ))}
+                        )))} 
                     </div>
                 );
 
@@ -103,7 +107,7 @@ export default function Gallery() {
 
                 return (
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
-                        {videos?.map((video, i) => (
+                        { isLoading ? (<p>Loading....</p> )  : (  videos?.map((video, i) => (
                             <div key={i} className="w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg">
                                 <iframe
                                     src={`https://www.youtube.com/embed/${video.url}`}
@@ -113,7 +117,7 @@ export default function Gallery() {
                                     className="w-full h-full rounded-2xl"
                                 />
                             </div>
-                        ))
+                        )))
 
                         }
                     </div>
@@ -122,7 +126,7 @@ export default function Gallery() {
             case 'shorts':
                 return (
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 xl:grid-cols-5 xl:gap-6 pb-8">
-                        {shorts?.map((video, i) => (
+                        { isLoading ? (<p>Loading....</p> )  :  (   shorts?.map((video, i) => (
                             <div key={i} className="w-full aspect-[9/16] rounded-2xl overflow-hidden bg-black">
 
                                 <iframe
@@ -132,16 +136,8 @@ export default function Gallery() {
                                     allowFullScreen
                                     className="w-full h-full object-cover rounded-2xl"
                                 />
-                                {/* <video
-                                    src={shortUrl}
-                                    controls
-                                    className="w-full h-full object-cover rounded-2xl"
-                                    poster="" // Add thumbnail if available
-                                >
-                                    Your browser does not support video playback.
-                                </video> */}
                             </div>
-                        ))}
+                        )))}
                     </div>
                 );
 
@@ -181,7 +177,7 @@ export default function Gallery() {
         }
     };
 
-    console.log(supabase);
+    
 
     return (
         <>
