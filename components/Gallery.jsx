@@ -94,7 +94,11 @@ export default function Gallery() {
                 return (
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
                         {isLoading ? (<p>Loading....</p>) : (currentData?.map((urls, i) => (
-                            <div key={i} className="w-full  sm:h-52 md:h-56 lg:h-60 rounded-2xl overflow-hidden">
+                            <motion.div
+                                initial={{ opacity: 0.5, x: 150 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 1 }}
+                                key={i} className="w-full  sm:h-52 md:h-56 lg:h-60 rounded-2xl overflow-hidden">
                                 <Image
                                     src={urls}
                                     alt={`Photo ${i + 1}`}
@@ -104,7 +108,7 @@ export default function Gallery() {
                                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
                                     className="w-full h-full object-cover rounded-2xl"
                                 />
-                            </div>
+                            </motion.div>
                         )))}
                     </div>
                 );
