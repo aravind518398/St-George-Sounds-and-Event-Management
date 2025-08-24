@@ -1,4 +1,46 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    domains: ['qftcakdgsshyvdollguq.supabase.co'],
+    // or use remotePatterns for more control (recommended for newer Next.js versions)
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'qftcakdgsshyvdollguq.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh4.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh5.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh6.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+}
 
 export default nextConfig;

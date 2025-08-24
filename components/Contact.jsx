@@ -39,7 +39,18 @@ export default function Contact() {
     }
     return (
         <>
-            <div className="w-full h-[40vh] md:h-[70vh] bg-transparent"></div>
+            <div className="w-full h-[40vh] md:h-[70vh] bg-transparent relative" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
+                <div className="space-y-2 text-[#f1f1f1] absolute bottom-2 md:bottom-30 left-4 md:left-16 lg:left-32 xl:left-80  ">
+                    <motion.h1
+                    initial={{opacity:0, y:40}}
+                    animate={{opacity:1, y:0}}
+                    transition={{duration:0.7}}
+                    className=" text-xl md:text-3xl lg:text-4xl font-semibold pb-2 lg:pb-4 " >Contact Us</motion.h1>
+                    <p className="">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
+                    <p className="">We can provide everything you need to ensure your event is a success. </p>
+                </div>
+
+            </div>
             <div className="w-full min-h-[100vh] bg-white">
                 <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-80">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pt-8 sm:pt-16 md:pt-20 lg:pt-30 pb-8">
@@ -56,7 +67,7 @@ export default function Contact() {
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6}}
+                                transition={{ duration: 0.6 }}
                                 className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-6 md:pb-10">
                                 <FontAwesomeIcon
                                     icon={faPhoneVolume}
@@ -73,10 +84,10 @@ export default function Contact() {
                                 </div>
                             </motion.div>
                             <motion.div
-                             initial={{opacity:0, y:100}}
-                                animate={{opacity:1, y:0}}
-                                transition={{duration:0.9}}
-                            className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-6 md:pb-10">
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.9 }}
+                                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pb-6 md:pb-10">
                                 <FontAwesomeIcon
                                     icon={faEnvelope}
                                     color="#674188"
@@ -92,10 +103,10 @@ export default function Contact() {
                                 </div>
                             </motion.div>
                             <motion.div
-                             initial={{opacity:0, y:100}}
-                                animate={{opacity:1, y:0}}
-                                transition={{duration:1.2 }}
-                            className="flex gap-4 sm:gap-6 md:gap-10">
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1.2 }}
+                                className="flex gap-4 sm:gap-6 md:gap-10">
                                 <Image
                                     src={assets.insta_icon}
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
