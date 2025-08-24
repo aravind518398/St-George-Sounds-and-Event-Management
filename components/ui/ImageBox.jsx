@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function ImageBox({ images, heading, content }) {
   return (
-    <div className="relative w-100 h-60 overflow-hidden  rounded-2xl">
+    <div className="relative w-100 h-60 overflow-hidden  rounded-2xl mx-3 md:mx-0  ">
       <Image
         src={images}
         alt="example"

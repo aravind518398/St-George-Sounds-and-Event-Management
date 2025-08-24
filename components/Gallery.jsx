@@ -183,8 +183,8 @@ export default function Gallery() {
                     >
                         Gallery of COMPANY NAME
                     </motion.h1>
-                    <p className="hidden sm:block">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
-                    <p className="hidden sm:block">We can provide everything you need to ensure your event is a success. </p>
+                    <p className="hidden md:block">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
+                    <p className="hidden md:block">We can provide everything you need to ensure your event is a success. </p>
                 </div>
             </div>
             <div className="w-full min-h-[100vh] bg-white px-5 md:px-18 lg:px-30 xl:px-80 ">
@@ -195,12 +195,12 @@ export default function Gallery() {
                     Please note that we have only showcased a few photos here due to our company policy limitations. However, if you wish to explore our extensive collection, which includes our latest designs, decorations, wedding dance videos, other entertainment, recent wedding photos, and new trends in decorations and other event aspects, kindly contact us or send us a message on WhatsApp or Gmail. We have a dedicated team available to promptly respond to your inquiries, provide additional photos, and address any clarifications you may have. So, don't hesitate; send us a message now!
                 </p>
                 <div className="py-20">
-                    <ul className="flex justify-between">
+                    <ul className="flex gap-4 md:gap-10">
                         {tabs.map((tab) => (
                             <li key={tab.id}>
                                 <button
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`rounded-full py-1.5 px-1 md:px-3 md:py-1.5 cursor-pointer transition-colors duration-200 ${activeTab === tab.id
+                                    className={`rounded-xl  md:rounded-full py-1.5 px-1 md:px-3 md:py-1.5 cursor-pointer transition-colors duration-200  ${activeTab === tab.id
                                         ? 'bg-[#674188] text-white'
                                         : 'bg-[#f1f1f1] text-[#171717] hover:bg-[#674188] hover:text-[#f1f1f1]'
                                         }`}

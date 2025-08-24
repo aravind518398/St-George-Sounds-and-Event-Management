@@ -45,8 +45,8 @@ export default function Contact() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
                         className=" text-xl md:text-3xl lg:text-4xl font-semibold pb-2 lg:pb-4 " >Contact Us</motion.h1>
-                    <p className="hidden sm:block">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
-                    <p className="hidden sm:block">We can provide everything you need to ensure your event is a success. </p>
+                    <p className="hidden md:block">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
+                    <p className="hidden md:block">We can provide everything you need to ensure your event is a success. </p>
                 </div>
             </div>
             <div className="w-full min-h-[100vh] bg-white">
