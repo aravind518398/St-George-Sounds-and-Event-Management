@@ -191,8 +191,8 @@ export default function Gallery() {
                     >
                         Gallery of COMPANY NAME
                     </motion.h1>
-                    <p className="">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
-                    <p className="">We can provide everything you need to ensure your event is a success. </p>
+                    <p className="hidden sm:block">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
+                    <p className="hidden sm:block">We can provide everything you need to ensure your event is a success. </p>
                 </div>
             </div>
 

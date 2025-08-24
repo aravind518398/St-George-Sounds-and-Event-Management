@@ -27,6 +27,7 @@ export default function Carousel() {
             slidesPerView={1}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            className=""
         >
             {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
@@ -36,7 +37,7 @@ export default function Carousel() {
                         transition={{ delay:0.5,duration: 5 }}
                     >
                         <Image
-                            className="h-[68vh] w-full object-cover "
+                            className="h-[58vh]  md:h-[68vh]  object-cover "
                             src={slide.src}
                             alt={slide.alt}
                         />
