@@ -11,11 +11,9 @@ const PhotoGallery = () => {
         const fetchPhotos = async () => {
             try {
                 const response = await fetch('/api/photos');
-
                 if (!response.ok) {
                     throw new Error('Failed to fetch photos');
                 }
-
                 const data = await response.json();
                 setPhotos(data);
             } catch (err) {
@@ -42,8 +40,7 @@ const PhotoGallery = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold text-center mb-8">My Google Drive Photos</h1>
-
+            <h1 className="text-3xl font-bold text-center mb-8">Google Drive Photos</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {photos.map((photo) => (
                     <div key={photo.id} className="bg-white rounded-lg shadow-md overflow-hidden">

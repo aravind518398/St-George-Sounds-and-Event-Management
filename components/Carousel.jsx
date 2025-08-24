@@ -16,14 +16,12 @@ export default function Carousel() {
         { src: assets.beautifull_photozone, alt: "beautifull_photozone" },
         { src: assets.fresh_rose_flowers, alt: "fresh_rose_flowers" },
         { src: assets.green_garden, alt: "green_garden" },
-        
     ];
 
     return (
         <Swiper
             modules={[Autoplay]}
             loop={true}
-            
             slidesPerView={1}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -34,17 +32,16 @@ export default function Carousel() {
                     <motion.div
                         initial={{ scale: 1 }}
                         animate={activeIndex === index ? { scale: 1.08 } : { scale: 1 }}
-                        transition={{ delay:0.5,duration: 5 }}
+                        transition={{ delay: 0.5, duration: 5 }}
                     >
                         <Image
-                            className="h-[58vh]  md:h-[68vh]  object-cover "
+                            className="h-[60vh]  md:h-[68vh]  object-cover "
                             src={slide.src}
                             alt={slide.alt}
                         />
                     </motion.div>
                 </SwiperSlide>
             ))}
-        
         </Swiper>
     );
 }

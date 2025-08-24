@@ -3,13 +3,12 @@ import MapSkeleton from "./ui/MapSkeleton";
 export default function GoogleMap() {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-  const timer = setTimeout(() => setIsLoading(false), 2000); // 2s fallback
-  return () => clearTimeout(timer);
-}, []);
+        const timer = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <section className="w-full py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
                 <div className="text-center mb-12">
                     <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                         Visit Our Location
@@ -18,15 +17,8 @@ export default function GoogleMap() {
                         Find us at Aruvithura. We're easily accessible and look forward to welcoming you.
                     </p>
                 </div>
-
-                {/* Map Section */}
-
-
-                
-{isLoading && <MapSkeleton />}
+                {isLoading && <MapSkeleton />}
                 <div className="relative">
-                    
-
                     <div className={`bg-white rounded-3xl shadow-xl overflow-hidden ${isLoading ? "hidden" : ""}`}>
                         <iframe
                             className="w-full h-[500px] sm:h-[400px] md:h-[450px] lg:h-[500px]"
@@ -35,19 +27,14 @@ export default function GoogleMap() {
                             allowFullScreen=""
                             loading="eager"
                             onLoad={() => setIsLoading(false)}
-                            
+
                             referrerPolicy="no-referrer-when-downgrade"
                             title="St.George Sounds and Event Management"
                         />
                         <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-20"></div>
-                    <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-green-500 rounded-full opacity-20"></div>
+                        <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-green-500 rounded-full opacity-20"></div>
                     </div>
-                    
                 </div>
-
-
-
-
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="text-center">
                         <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4">
@@ -59,7 +46,6 @@ export default function GoogleMap() {
                         <h3 className="text-lg font-semibold text-gray-900 mb-2">Address</h3>
                         <p className="text-gray-600">Aruvithura, Kottayam, Erattupetta, <br />Kerala 686122</p>
                     </div>
-
                     <div className="text-center">
                         <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
                             <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,7 +55,6 @@ export default function GoogleMap() {
                         <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
                         <p className="text-gray-600">+91 XXX XXX XXXX</p>
                     </div>
-
                     <div className="text-center">
                         <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mb-4">
                             <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

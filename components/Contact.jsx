@@ -30,7 +30,6 @@ export default function Contact() {
                     Form submitted successfully <span style={{ color: 'green' }}>✔</span>
                 </span>
             );
-
             e.target.reset();
         } else {
             console.log("Error", data);
@@ -42,19 +41,17 @@ export default function Contact() {
             <div className="w-full h-[40vh] md:h-[70vh] bg-transparent relative" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                 <div className="space-y-2 text-[#f1f1f1] absolute bottom-2 md:bottom-30 left-4 md:left-16 lg:left-32 xl:left-80  ">
                     <motion.h1
-                    initial={{opacity:0, y:40}}
-                    animate={{opacity:1, y:0}}
-                    transition={{duration:0.7}}
-                    className=" text-xl md:text-3xl lg:text-4xl font-semibold pb-2 lg:pb-4 " >Contact Us</motion.h1>
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                        className=" text-xl md:text-3xl lg:text-4xl font-semibold pb-2 lg:pb-4 " >Contact Us</motion.h1>
                     <p className="hidden sm:block">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
                     <p className="hidden sm:block">We can provide everything you need to ensure your event is a success. </p>
                 </div>
-
             </div>
             <div className="w-full min-h-[100vh] bg-white">
                 <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-80">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pt-8 sm:pt-16 md:pt-20 lg:pt-30 pb-8">
-                        {/* Left Section - Contact Info */}
                         <div className="mt-8 mx-4 ">
                             <h1 className="text-lg sm:text-xl md:text-2xl pb- md:pb-10 text-[#674188]"
                                 style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
@@ -125,18 +122,14 @@ export default function Contact() {
                             </motion.div>
                         </div>
 
-                        {/* Right Section - Contact Form */}
                         <div className="mt-8 lg:mt-0">
                             <div className="bg-gray-50 p-6 sm:p-8 rounded-lg ">
                                 <h2 className="text-xl sm:text-2xl font-bold mb-6 text-[#674188]"
                                     style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                     GET IN TOUCH
                                 </h2>
-
                                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                                    {/* Full Name */}
                                     <div>
-
                                         <input
                                             type="text"
                                             id="fullName"
@@ -146,10 +139,7 @@ export default function Contact() {
                                             placeholder="Enter your Full Name"
                                         />
                                     </div>
-
-                                    {/* Phone Number */}
                                     <div>
-
                                         <input
                                             type="tel"
                                             id="phone"
@@ -159,10 +149,7 @@ export default function Contact() {
                                             placeholder="Enter your Phone Number"
                                         />
                                     </div>
-
-                                    {/* Email */}
                                     <div>
-
                                         <input
                                             type="email"
                                             id="email"
@@ -172,10 +159,7 @@ export default function Contact() {
                                             placeholder="Enter your Email ID"
                                         />
                                     </div>
-
-                                    {/* Message */}
                                     <div>
-
                                         <textarea
                                             id="message"
                                             name="message"
@@ -185,8 +169,6 @@ export default function Contact() {
                                             placeholder="Message"
                                         ></textarea>
                                     </div>
-
-                                    {/* Submit Button */}
                                     <div className="pt-4">
                                         <button
                                             type="submit"

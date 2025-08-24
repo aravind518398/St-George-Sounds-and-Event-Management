@@ -5,24 +5,15 @@ import Contact from "../../../components/Contact";
 import Whatsapp from "../../../components/ui/Whatsapp";
 import { assets } from "../../../assets/assets";
 
-
-
-
-
-
-
 export default function ContactPage() {
     const event_management = assets.event_management.src;
     return (
         <>
-        <BackgroundImage src={event_management}/>
-        
-        <Navbar/>
-        <Contact />
-        
-        <Footer/>
-        <Whatsapp/>
-        
+            <BackgroundImage src={event_management} />
+            <Navbar />
+            <Contact />
+            <Footer />
+            <Whatsapp />
         </>
     )
 }

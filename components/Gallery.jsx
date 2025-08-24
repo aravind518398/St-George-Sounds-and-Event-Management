@@ -12,6 +12,7 @@ export default function Gallery() {
     const [shorts, setShorts] = useState([]);
     const [albums, setAlbums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    console.log(albums);
 
     const tabs = [
         { id: 'photos', label: 'Photo Gallery', data: images },
@@ -49,7 +50,6 @@ export default function Gallery() {
             if (error) {
                 console.log(error);
             } else {
-                console.log("Fetched data:", data)
                 setIsLoading(false);
                 setVideos(data);
             }
@@ -62,20 +62,28 @@ export default function Gallery() {
             if (error) {
                 console.log(error);
             } else {
-                console.log("Fetched data:", data)
                 setIsLoading(false);
                 setShorts(data);
             }
         };
 
         const fetchAlbums = async () => {
+            const { data, error } = await supabase.from("wedding-albums").select("*");
+
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("Fetched data:", data)
+                setIsLoading(false);
+                setAlbums(data);
+            }
 
         };
 
         fetchImages();
         fetchVideos();
         fetchShorts();
-        // fetchAlbums();
+        fetchAlbums();
     }, []);
 
     const renderContent = () => {
@@ -85,8 +93,7 @@ export default function Gallery() {
             case 'photos':
                 return (
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
-                        
-                        { isLoading ? (<p>Loading....</p> )  : ( currentData?.map((urls, i) => (
+                        {isLoading ? (<p>Loading....</p>) : (currentData?.map((urls, i) => (
                             <div key={i} className="w-full  sm:h-52 md:h-56 lg:h-60 rounded-2xl overflow-hidden">
                                 <Image
                                     src={urls}
@@ -98,16 +105,14 @@ export default function Gallery() {
                                     className="w-full h-full object-cover rounded-2xl"
                                 />
                             </div>
-                        )))} 
+                        )))}
                     </div>
                 );
 
             case 'videos':
-
-
                 return (
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
-                        { isLoading ? (<p>Loading....</p> )  : (  videos?.map((video, i) => (
+                        {isLoading ? (<p>Loading....</p>) : (videos?.map((video, i) => (
                             <div key={i} className="w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg">
                                 <iframe
                                     src={`https://www.youtube.com/embed/${video.url}`}
@@ -117,18 +122,15 @@ export default function Gallery() {
                                     className="w-full h-full rounded-2xl"
                                 />
                             </div>
-                        )))
-
-                        }
+                        )))}
                     </div>
                 );
 
             case 'shorts':
                 return (
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 xl:grid-cols-5 xl:gap-6 pb-8">
-                        { isLoading ? (<p>Loading....</p> )  :  (   shorts?.map((video, i) => (
+                        {isLoading ? (<p>Loading....</p>) : (shorts?.map((video, i) => (
                             <div key={i} className="w-full aspect-[9/16] rounded-2xl overflow-hidden bg-black">
-
                                 <iframe
                                     src={`https://www.youtube.com/embed/${video.url}`}
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -143,32 +145,18 @@ export default function Gallery() {
 
             case 'albums':
                 return (
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-6 pb-8">
-                        {currentData?.map((album, i) => (
-                            <div key={i} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                                <div className="aspect-[4/3] overflow-hidden">
-                                    <Image
-                                        src={album.coverImage || album.images?.[0]}
-                                        alt={`${album.title} cover`}
-                                        width={400}
-                                        height={300}
-                                        quality={100}
-                                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                                    />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                                        {album.title || `Wedding Album ${i + 1}`}
-                                    </h3>
-                                    <p className="text-gray-600 text-sm mb-2">
-                                        {album.date || 'Wedding Date'}
-                                    </p>
-                                    <p className="text-gray-500 text-xs">
-                                        {album.images?.length || 0} Photos
-                                    </p>
-                                </div>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
+                        {isLoading ? (<p>Loading....</p>) : (albums?.map((video, i) => (
+                            <div key={i} className="w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${video.url}`}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allowFullScreen
+                                    className="w-full h-full rounded-2xl"
+                                />
                             </div>
-                        ))}
+                        )))}
                     </div>
                 );
 
@@ -177,7 +165,7 @@ export default function Gallery() {
         }
     };
 
-    
+
 
     return (
         <>
@@ -195,7 +183,6 @@ export default function Gallery() {
                     <p className="hidden sm:block">We can provide everything you need to ensure your event is a success. </p>
                 </div>
             </div>
-
             <div className="w-full min-h-[100vh] bg-white px-5 md:px-18 lg:px-30 xl:px-80 ">
                 <p className=" pt-20 pb-5 " style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                     Melodia® Events always prioritizes the satisfaction of our clients in Kerala. We are particularly delighted to work with the Malayalee community, bringing joy from the heart. Here are some photos of our recent work in Kerala that we would like to share with you.
@@ -203,8 +190,6 @@ export default function Gallery() {
                 <p className="" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                     Please note that we have only showcased a few photos here due to our company policy limitations. However, if you wish to explore our extensive collection, which includes our latest designs, decorations, wedding dance videos, other entertainment, recent wedding photos, and new trends in decorations and other event aspects, kindly contact us or send us a message on WhatsApp or Gmail. We have a dedicated team available to promptly respond to your inquiries, provide additional photos, and address any clarifications you may have. So, don't hesitate; send us a message now!
                 </p>
-
-                {/* Gallery Navigation - Fixed */}
                 <div className="py-20">
                     <ul className="flex justify-between">
                         {tabs.map((tab) => (
@@ -222,8 +207,6 @@ export default function Gallery() {
                         ))}
                     </ul>
                 </div>
-
-                {/* Dynamic Content Area */}
                 {renderContent()}
             </div>
         </>
