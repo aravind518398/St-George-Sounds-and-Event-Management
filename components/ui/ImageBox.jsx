@@ -8,13 +8,14 @@ export default function ImageBox({ images, heading, content }) {
       <Image
         src={images}
         alt="example"
-        width={100}
-        height={60}
+        width={600}
+        height={400}
         className="w-full h-full object-cover rounded-2xl "
       />
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileHover={{ opacity: 1, y: 0 }}
+        whileTap={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
         className="flex flex-col w-100 h-60 bg-black/50 rounded-2xl absolute top-0 left-0 cursor-default "
         style={{ fontFamily: 'var(--font-roboto)' }}
