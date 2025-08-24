@@ -4,10 +4,14 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function ImageBox({ images, heading, content }) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
 
-  const handleTap = () => {
-    setIsVisible(!isVisible);
+  const handleTouchStart = () => {
+    setIsTouching(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsTouching(false);
   };
 
   return (
@@ -21,11 +25,13 @@ export default function ImageBox({ images, heading, content }) {
       />
       <motion.div
         initial={{ opacity: 0, y: 60 }}
-        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+        animate={isTouching ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
         whileHover={{ opacity: 1, y: 0 }}
-        onTouchStart={handleTap}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
         transition={{ duration: 0.2 }}
-        className="flex flex-col w-100 h-60 bg-black/50 rounded-2xl absolute top-0 left-0 cursor-pointer"
+        className="flex flex-col w-100 h-60 bg-black/50 rounded-2xl absolute top-0 left-0 cursor-default"
         style={{ fontFamily: 'var(--font-roboto)' }}
       >
         <h1 className="text-2xl pl-10 text-white/90 pt-10">{heading}</h1>
