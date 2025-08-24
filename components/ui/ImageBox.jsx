@@ -1,23 +1,31 @@
 "use client"
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export default function ImageBox({ images, heading, content }) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleTap = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
-    <div className="relative w-100 h-60 overflow-hidden  rounded-2xl mx-3 md:mx-0  ">
+    <div className="relative w-100 h-60 overflow-hidden rounded-2xl mx-3 md:mx-0">
       <Image
         src={images}
         alt="example"
         width={600}
         height={400}
-        className="w-full h-full object-cover rounded-2xl "
+        className="w-full h-full object-cover rounded-2xl"
       />
       <motion.div
         initial={{ opacity: 0, y: 60 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
         whileHover={{ opacity: 1, y: 0 }}
-        whileTap={{ opacity: 1, y: 0 }}
+        onTouchStart={handleTap}
         transition={{ duration: 0.2 }}
-        className="flex flex-col w-100 h-60 bg-black/50 rounded-2xl absolute top-0 left-0 cursor-default "
+        className="flex flex-col w-100 h-60 bg-black/50 rounded-2xl absolute top-0 left-0 cursor-pointer"
         style={{ fontFamily: 'var(--font-roboto)' }}
       >
         <h1 className="text-2xl pl-10 text-white/90 pt-10">{heading}</h1>
