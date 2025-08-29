@@ -25,7 +25,7 @@ export default function Whatsapp() {
       transition={{ delay: 1, stiffness: 100, type: "spring" }}
       className="fixed right-4 bottom-4 md:right-6 md:bottom-6  lg:right-8 lg:bottom-8 z-40 "
     ><a target="_blank" onClick={handleClick}>
-        <Image src="/whatsapp-png-icon.png" alt="whatsapp-icon" width={60} height={60} className="hover:brightness-90 w-13 md:w-15 lg:w-17 " />
+        <Image src="/whatsapp-png-icon.png" alt="whatsapp-icon" width={60} height={60} className="hover:brightness-90 w-14 md:w-16 lg:w-18 " />
       </a></motion.div>
   )
 }

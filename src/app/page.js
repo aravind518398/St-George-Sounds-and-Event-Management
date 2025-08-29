@@ -6,6 +6,7 @@ import Service from "../../components/Service";
 
 import Footer from "../../components/Footer";
 import Whatsapp from "../../components/ui/Whatsapp";
+import PhotoGallery from "../../components/PhotoGallery";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
   <Count/>
   <Youtube/>
   <Service/>
+  <PhotoGallery/>
   <Footer/>
   <Whatsapp/>
   </>

@@ -3,7 +3,9 @@
 import supabase from "../config/supabaseClient";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+
 
 export default function Gallery() {
     const [activeTab, setActiveTab] = useState('photos');
@@ -12,7 +14,21 @@ export default function Gallery() {
     const [shorts, setShorts] = useState([]);
     const [albums, setAlbums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    console.log(albums);
+
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const item = {
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    };
 
     const tabs = [
         { id: 'photos', label: 'Photo Gallery', data: images },
@@ -73,7 +89,6 @@ export default function Gallery() {
             if (error) {
                 console.log(error);
             } else {
-                console.log("Fetched data:", data)
                 setIsLoading(false);
                 setAlbums(data);
             }
@@ -92,12 +107,15 @@ export default function Gallery() {
         switch (activeTab) {
             case 'photos':
                 return (
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
+                    <motion.div
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+
+                        className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
                         {isLoading ? (<p>Loading....</p>) : (currentData?.map((urls, i) => (
                             <motion.div
-                                initial={{ opacity: 0.5, x: 150 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 1 }}
+                                variants={item}
                                 key={i} className="w-full  sm:h-52 md:h-56 lg:h-60 rounded-2xl overflow-hidden">
                                 <Image
                                     src={urls}
@@ -110,7 +128,7 @@ export default function Gallery() {
                                 />
                             </motion.div>
                         )))}
-                    </div>
+                    </motion.div>
                 );
 
             case 'videos':
@@ -133,7 +151,7 @@ export default function Gallery() {
             case 'shorts':
                 return (
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 xl:grid-cols-5 xl:gap-6 pb-8">
-                        {isLoading ? (<p>Loading....</p>) : (shorts?.map((video, i) => (
+                        {isLoading ? (<p >Loading....</p>) : (shorts?.map((video, i) => (
                             <div key={i} className="w-full aspect-[9/16] rounded-2xl overflow-hidden bg-black">
                                 <iframe
                                     src={`https://www.youtube.com/embed/${video.url}`}
@@ -181,18 +199,18 @@ export default function Gallery() {
                         transition={{ duration: 0.7 }}
                         className=" text-xl md:text-3xl lg:text-4xl font-semibold pb-2 lg:pb-4 "
                     >
-                        Gallery of COMPANY NAME
+                        Gallery of St.George Event Management
                     </motion.h1>
-                    <p className="hidden md:block">Need help planning your next event? Look no further than St George Event Management Kerala!</p>
+                    <p className="hidden md:block">Need help planning your next event? Look no further than St George Event Management Aruvitura!</p>
                     <p className="hidden md:block">We can provide everything you need to ensure your event is a success. </p>
                 </div>
             </div>
             <div className="w-full min-h-[100vh] bg-white px-5 md:px-18 lg:px-30 xl:px-80 ">
                 <p className=" pt-20 pb-5 " style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
-                    Melodia® Events always prioritizes the satisfaction of our clients in Kerala. We are particularly delighted to work with the Malayalee community, bringing joy from the heart. Here are some photos of our recent work in Kerala that we would like to share with you.
+                    St.George Events always prioritizes the satisfaction of our clients in Aruvitura. We are particularly delighted to work with the Malayalee community, bringing joy from the heart. Here are some photos of our recent work in Aruvitura that we would like to share with you.
                 </p>
                 <p className="" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
-                    Please note that we have only showcased a few photos here due to our company policy limitations. However, if you wish to explore our extensive collection, which includes our latest designs, decorations, wedding dance videos, other entertainment, recent wedding photos, and new trends in decorations and other event aspects, kindly contact us or send us a message on WhatsApp or Gmail. We have a dedicated team available to promptly respond to your inquiries, provide additional photos, and address any clarifications you may have. So, don't hesitate; send us a message now!
+                    Please note that we have only showcased a few photos here due to our company policy limitations. However, if you wish to explore our extensive collection, which includes our latest designs, decorations, wedding dance videos, other entertainment, recent wedding photos, and new trends in decorations and other event aspects, kindly contact us or send us a message on WhatsApp or Gmail. We have a dedicated team available to promptly respond to your inquiries, provide additional photos, and address any clarifications you may have. So, don't hesitate; send us a message now! <Link href={"/contact"}><span className="text-purple-800">Contact</span></Link>
                 </p>
                 <div className="py-20">
                     <ul className="flex gap-4 md:gap-10">

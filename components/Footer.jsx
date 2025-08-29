@@ -65,19 +65,19 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-center items-start  px-4 gap-4 md:gap-0">
                     <FooterTable heading={"QUICK LINK"} items={["Home", "About", "Gallery", "Contact"]} />
                     <FooterTable heading={"SERVICES"} items={["Corporate Events", "Wedding Photography", "Event Planning", "Birthday Photography"]} />
-                    <FooterTable heading={"CONTACT INFO"} items={[, "Email: contact@example.com", "Phone: +1234567890", "Address: Aruvithura, Kottayam, Erattupetta, Kerala 686122"]} />
+                    <FooterTable heading={"CONTACT INFO"} items={[, "Email: stgeorgesoundsites@gmail.com", "Phone: +919567797440", "Address: Aruvithura, Kottayam, Erattupetta, Kerala 686122"]} />
                 </div>
                 <div className="mx-4 md:mx-10 mt-8">
                     <hr className="border-white/30" />
                     <div className="py-4 md:py-6">
                         <ul className="text-white flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 text-sm">
-                            <li className="flex items-center gap-2 cursor-pointer " >
+                            <a href="tel:+919567797440"><li className="flex items-center gap-2 cursor-pointer " >
                                 <FontAwesomeIcon icon={faPhone} color="white" />
                                 +91-9567797440
-                            </li>
+                            </li></a>
                             <li className="flex items-center gap-2 cursor-pointer">
                                 <FontAwesomeIcon icon={faEnvelope} color="white" />
-                                example@gmail.com
+                                stgeorgesoundsites@gmail.com
                             </li>
                         </ul>
                     </div>
@@ -95,7 +95,7 @@ export default function Footer() {
 export function FooterTable({ heading, items }) {
     const links = ["/", "/about", "/gallery", "/contact"]
     return (
-        <div className="text-white w-full md:w-[210px] py-6 md:py-8 text-center md:text-left">
+        <div className="text-white w-full md:w-[280px] py-6 md:py-8 text-center md:text-left">
             <h1 className="text-lg md:text-xl font-semibold mb-4 text-white/90">{heading}</h1>
             <ul className="space-y-2 text-sm md:text-base" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                 {items?.map((value, index) => (

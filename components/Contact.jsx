@@ -76,7 +76,7 @@ export default function Contact() {
                                     <h3 className="text-sm sm:text-base" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                         TALK TO OUR SUPPORT TEAM
                                         <br />
-                                        <span className="font-bold text-base sm:text-lg">+91-9567797440</span>
+                                        <a href="tel: +919567797440"><span className="font-bold text-base sm:text-lg">+91-9567797440</span></a>
                                     </h3>
                                 </div>
                             </motion.div>
@@ -95,7 +95,7 @@ export default function Contact() {
                                     <h3 className="text-sm sm:text-base" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                         EMAIL OUR SUPPORT TEAM
                                         <br />
-                                        <span className="font-bold text-base sm:text-lg">support@company.com</span>
+                                        <span className="font-bold text-base sm:text-lg">stgeorgesoundsites@gmail.com</span>
                                     </h3>
                                 </div>
                             </motion.div>
@@ -104,11 +104,11 @@ export default function Contact() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1.2 }}
                                 className="flex gap-4 sm:gap-6 md:gap-10">
-                                <Image
+                                <a href="https://www.instagram.com/s_g_events_aruvithura?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><Image
                                     src={assets.insta_icon}
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
                                     alt="Instagram icon"
-                                />
+                                /></a>
                                 <Image
                                     src={assets.youtube_icon}
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"

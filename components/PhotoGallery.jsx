@@ -1,11 +1,13 @@
 "use client"
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import PhotoSkeleton from './ui/PhotoSkeleton';
 
 const PhotoGallery = () => {
     const [photos, setPhotos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
 
     useEffect(() => {
         const fetchPhotos = async () => {
@@ -27,7 +29,7 @@ const PhotoGallery = () => {
     }, []);
 
     if (loading) {
-        return <div className="text-center py-8">Loading photos...</div>;
+        return <PhotoSkeleton/>;
     }
 
     if (error) {
@@ -38,32 +40,33 @@ const PhotoGallery = () => {
         return <div className="text-center py-8">No photos found</div>;
     }
 
-    return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold text-center mb-8">Google Drive Photos</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {photos.map((photo) => (
-                    <div key={photo.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                        <Image
-                            src={photo.thumbnail || photo.imageUrl}
-                            alt={photo.name}
-                            width={600}
-                            height={400}
-                            quality={100}
-                            className="w-full h-48 object-cover cursor-pointer"
-                            onClick={() => window.open(photo.imageUrl, '_blank')}
-                        />
-                        <div className="p-3">
-                            <p className="text-sm font-medium truncate">{photo.name}</p>
-                            <p className="text-xs text-gray-500">
-                                {new Date(photo.createdTime).toLocaleDateString()}
-                            </p>
+return (
+    <div className=" mx-4 py-8">
+        <h1 className="text-3xl font-bold text-center text-purple-800/70" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>Event Management Photos</h1>
+         <div className="flex justify-center pt-3 mb-10">
+                            <Image src="/violet-design.svg" alt="violet-design" width={300} height={1} />
                         </div>
-                    </div>
-                ))}
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-4 max-w-7xl mx-auto">
+            {photos.map((photo) => (
+                <div key={photo.id} className="bg-white rounded-2xl shadow-md overflow-hidden">
+                    <Image
+                        src={photo.imageUrl}
+                        alt={photo.name}
+                        width={600}
+                        height={400}
+                        quality={100}
+                        className="w-full h-80  md:h-90 object-cover cursor-pointer"
+                    />
+                </div>
+            ))}
+            
+            
         </div>
-    );
+        <div className="flex justify-center pt-18 mb-10">
+                            <Image src="/violet-design.svg" alt="violet-design" width={300} height={1} />
+                        </div>
+    </div>
+);
 };
 
 export default PhotoGallery;
