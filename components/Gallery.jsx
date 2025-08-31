@@ -329,7 +329,7 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
             {/* Navigation arrows */}
             <button
                 onClick={handlePrevious}
-                className="fixed left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                className="fixed left-4 top-1/2 -translate-y-1/2  bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-50"
                 aria-label="Previous image"
             >
                 &#8249;
@@ -337,7 +337,7 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
             
             <button
                 onClick={handleNext}
-                className="fixed right-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                className="fixed right-4 top-1/2 -translate-y-1/2  bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-50"
                 aria-label="Next image"
             >
                 &#8250;
