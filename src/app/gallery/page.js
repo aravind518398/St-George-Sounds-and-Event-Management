@@ -16,6 +16,7 @@ export default async function GalleryPage() {
         <BackgroundImage src={sea_vibe} />
         <Navbar />
         <Gallery />
+        
         <Footer />
         <Whatsapp />
       </>

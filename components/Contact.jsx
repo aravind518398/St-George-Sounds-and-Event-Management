@@ -10,6 +10,7 @@ import { assets } from "../assets/assets"
 import { useState } from "react"
 import GoogleMap from "./GoogleMap"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 
 export default function Contact() {
@@ -109,16 +110,16 @@ export default function Contact() {
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
                                     alt="Instagram icon"
                                 /></a>
-                                <Image
+                                <a href="https://youtube.com/@sgeventsaruvithura?si=WbLKWy5vTstPPpOS" target="_blank"><Image
                                     src={assets.youtube_icon}
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
                                     alt="YouTube icon"
-                                />
-                                <Image
+                                /></a>
+                                <Link href="/not-found" ><Image
                                     src={assets.logo_facebook}
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
                                     alt="Facebook icon"
-                                />
+                                /></Link>
                             </motion.div>
                         </div>
 

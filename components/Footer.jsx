@@ -30,7 +30,7 @@ export default function Footer() {
                                 <FontAwesomeIcon icon={faInstagram} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
                         </a>
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://youtube.com/@sgeventsaruvithura?si=WbLKWy5vTstPPpOS">
                             <motion.li
                                 initial={{ scale: 1, opacity: 0.5 }}
                                 whileInView={{ opacity: 1 }}
@@ -40,7 +40,7 @@ export default function Footer() {
                                 <FontAwesomeIcon icon={faYoutube} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
                         </a>
-                        <a target="_blank" href="#">
+                        <Link href="/not-found">
                             <motion.li
                                 initial={{ scale: 1, opacity: 0.5 }}
                                 whileInView={{ opacity: 1 }}
@@ -49,7 +49,7 @@ export default function Footer() {
                             >
                                 <FontAwesomeIcon icon={faFacebook} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
-                        </a>
+                        </Link>
                     </ul>
                 </div>
                 <div className="px-4">

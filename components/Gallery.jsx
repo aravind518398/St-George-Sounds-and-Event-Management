@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { assets } from "../assets/assets";
 
 
 export default function Gallery() {
@@ -14,6 +15,14 @@ export default function Gallery() {
     const [shorts, setShorts] = useState([]);
     const [albums, setAlbums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+   
+      const [show, setShow] = useState(false);
+    const [selectedImage, setSelectedImage] = useState('');
+
+    const handleShow = (imageUrl) => {
+        setSelectedImage(imageUrl);
+        setShow(true);
+    }
 
     const container = {
         hidden: { opacity: 0 },
@@ -107,17 +116,21 @@ export default function Gallery() {
         switch (activeTab) {
             case 'photos':
                 return (
+                    <>
                     <motion.div
                         variants={container}
                         initial="hidden"
                         animate="show"
 
-                        className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
+                        className={`grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8`}>
                         {isLoading ? (<p>Loading....</p>) : (currentData?.map((urls, i) => (
                             <motion.div
+                            
                                 variants={item}
-                                key={i} className="w-full  sm:h-52 md:h-56 lg:h-60 rounded-2xl overflow-hidden">
+                                key={i} className="w-full  sm:h-52 md:h-56 lg:h-56 rounded-2xl overflow-hidden cursor-pointer">
+                                    
                                 <Image
+                                    onClick={() => handleShow(urls)}
                                     src={urls}
                                     alt={`Photo ${i + 1}`}
                                     width={600}
@@ -129,6 +142,12 @@ export default function Gallery() {
                             </motion.div>
                         )))}
                     </motion.div>
+                    <PopupImage 
+                show={show} 
+                setShow={setShow} 
+                selectedImage={selectedImage}
+            />
+                    </>
                 );
 
             case 'videos':
@@ -231,6 +250,51 @@ export default function Gallery() {
                 </div>
                 {renderContent()}
             </div>
+            
         </>
     );
+}
+
+
+
+export function PopupImage({ show, setShow, selectedImage }) {
+     
+
+
+    const handleHide = () => {
+        setShow(false)
+    }
+
+   return (
+
+        <>
+        {show && (
+                <>
+                    {/* Background overlay */}
+                    <div 
+                        className="fixed inset-0 bg-black/50  z-20"
+                        onClick={handleHide}
+                    />
+                    {/* Popup modal */}
+                    <div className=" fixed w-[430px] h-[280px]  sm:w-[480px] sm:h-[340px] md:w-[620px] md:h-[400px] lg:w-[800px] lg:h-[550px]  xl:w-[1000px] xl:h-[600px] bg-[#171717]  top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] z-30 rounded-2xl">
+                        <Image 
+                            onClick={handleHide} 
+                            src={assets.close_icon} 
+                            className="absolute -right-5  -top-5 sm:-right-8 sm:-top-8 md:-right-10 md:-top-10 cursor-pointer w-[15px] h-[15px]   lg:w-[25px] lg:h-[25px] md:w-[20px] md:h-[20px]" 
+                            alt="Close"
+                        />
+                        {selectedImage && (
+                            <Image
+                                src={selectedImage}
+                                alt="Selected photo"
+                                width={1115}
+                                height={670}
+                                className="w-full h-full object-cover rounded-2xl"
+                            />
+                        )}
+                    </div>
+                </>
+            )}
+        </>
+    )
 }
