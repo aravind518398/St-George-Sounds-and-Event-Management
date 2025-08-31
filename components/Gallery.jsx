@@ -130,8 +130,9 @@ export default function Gallery() {
                                 currentData?.map((url, i) => (
                                     <motion.div
                                         variants={item}
+
                                         key={i}
-                                        className="w-full sm:h-52 md:h-56 lg:h-56 rounded-2xl overflow-hidden cursor-pointer"
+                                        className="w-full sm:h-52 md:h-56 lg:h-56 rounded-2xl overflow-hidden cursor-pointer  bg-gradient-to-l  from-purple-700 to-black "
                                     >
                                         <Image
                                             onClick={() => handleShow(i)}
@@ -141,7 +142,7 @@ export default function Gallery() {
                                             height={400}
                                             quality={100}
                                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
-                                            className="w-full h-full object-cover rounded-2xl"
+                                            className="w-full h-full object-cover rounded-2xl  "
                                         />
                                     </motion.div>
                                 ))
@@ -161,33 +162,50 @@ export default function Gallery() {
 
             case 'videos':
                 return (
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
-                        {isLoading ? (
-                            <p>Loading....</p>
-                        ) : (
-                            videos?.map((video, i) => (
-                                <div key={i} className="w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg">
-                                    <iframe
-                                        src={`https://www.youtube.com/embed/${video.url}`}
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerPolicy="strict-origin-when-cross-origin"
-                                        allowFullScreen
-                                        className="w-full h-full rounded-2xl"
-                                    />
-                                </div>
-                            ))
-                        )}
-                    </div>
+                    <>
+                        <motion.div
+                            variants={container}
+                            initial="hidden"
+                            animate="show"
+                            className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
+                            {isLoading ? (
+                                <p>Loading....</p>
+                            ) : (
+                                videos?.map((video, i) => (
+                                    <motion.div
+                                        variants={item}
+                                        key={i} className="w-full aspect-video rounded-2xl overflow-hidden  bg-gradient-to-l  from-purple-700 to-black shadow-lg"
+                                        
+                                    >
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${video.url}`}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerPolicy="strict-origin-when-cross-origin"
+                                            allowFullScreen
+                                            className="w-full h-full rounded-2xl "
+                                        />
+                                    </motion.div>
+                                ))
+                            )}
+                        </motion.div>
+                    </>
+
                 );
 
             case 'shorts':
                 return (
-                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 xl:grid-cols-5 xl:gap-6 pb-8">
+                    <motion.div
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                        className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 xl:grid-cols-5 xl:gap-6 pb-8">
                         {isLoading ? (
                             <p>Loading....</p>
                         ) : (
                             shorts?.map((video, i) => (
-                                <div key={i} className="w-full aspect-[9/16] rounded-2xl overflow-hidden bg-black">
+                                <motion.div
+                                    variants={item}
+                                    key={i} className="w-full aspect-[9/16] rounded-2xl overflow-hidden bg-gradient-to-l  from-purple-700 to-black shadow-lg">
                                     <iframe
                                         src={`https://www.youtube.com/embed/${video.url}`}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -195,31 +213,37 @@ export default function Gallery() {
                                         allowFullScreen
                                         className="w-full h-full object-cover rounded-2xl"
                                     />
-                                </div>
+                                </motion.div>
                             ))
                         )}
-                    </div>
+                    </motion.div>
                 );
 
             case 'albums':
                 return (
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
+                    <motion.div
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                        className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-6 pb-8">
                         {isLoading ? (
                             <p>Loading....</p>
                         ) : (
                             albums?.map((video, i) => (
-                                <div key={i} className="w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-lg">
+                                <motion.div
+                                    variants={item}
+                                    key={i} className="w-full aspect-video rounded-2xl overflow-hidden  bg-gradient-to-l  from-purple-700 to-black shadow-lg">
                                     <iframe
                                         src={`https://www.youtube.com/embed/${video.url}`}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         referrerPolicy="strict-origin-when-cross-origin"
                                         allowFullScreen
-                                        className="w-full h-full rounded-2xl"
+                                        className="w-full h-full rounded-2xl "
                                     />
-                                </div>
+                                </motion.div>
                             ))
                         )}
-                    </div>
+                    </motion.div>
                 );
 
             default:
@@ -256,11 +280,10 @@ export default function Gallery() {
                             <li key={tab.id}>
                                 <button
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`rounded-xl md:rounded-full py-1.5 px-1 md:px-3 md:py-1.5 cursor-pointer transition-colors duration-200 ${
-                                        activeTab === tab.id
-                                            ? 'bg-[#674188] text-white'
-                                            : 'bg-[#f1f1f1] text-[#171717] hover:bg-[#674188] hover:text-[#f1f1f1]'
-                                    }`}
+                                    className={`rounded-xl md:rounded-full py-1.5 px-1 md:px-3 md:py-1.5 cursor-pointer transition-colors duration-200 ${activeTab === tab.id
+                                        ? 'bg-[#674188] text-white'
+                                        : 'bg-[#f1f1f1] text-[#171717] hover:bg-[#674188] hover:text-[#f1f1f1]'
+                                        }`}
                                 >
                                     {tab.label}
                                 </button>
@@ -290,7 +313,7 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (!show) return;
-            
+
             if (event.key === "ArrowLeft") {
                 handlePrevious();
             }
@@ -317,7 +340,7 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
                 className="fixed inset-0 bg-black/80 z-20"
                 onClick={handleHide}
             />
-            
+
             {/* Close button */}
             <Image
                 onClick={handleHide}
@@ -329,18 +352,18 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
             {/* Navigation arrows */}
             <button
                 onClick={handlePrevious}
-                className="fixed left-4 top-1/2 -translate-y-1/2  bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-50"
+                className="fixed left-4 top-1/2 -translate-y-1/2  bg-[#009075] hover:bg-[#007a62] text-white p-2 rounded-full  transition-colors z-50 w-8 h-15   md:w-10 md:h-20"
                 aria-label="Previous image"
             >
-                &#8249;
+                <span className="text-2xl md:text-4xl">&#8249;</span>
             </button>
-            
+
             <button
                 onClick={handleNext}
-                className="fixed right-4 top-1/2 -translate-y-1/2  bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-50"
+                className="fixed right-4 top-1/2 -translate-y-1/2  bg-[#009075] hover:bg-[#007a62] text-white p-2 rounded-full transition-colors z-50 w-8 h-15   md:w-10 md:h-20"
                 aria-label="Next image"
             >
-                &#8250;
+                <span className="text-2xl md:text-4xl">&#8250;</span>
             </button>
 
             {/* Image modal */}
@@ -355,7 +378,7 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
             </div>
 
             {/* Image counter */}
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 bg-[#009075] text-white px-3 py-1 rounded-full text-sm">
                 {selectedImageIndex + 1} / {images.length}
             </div>
         </>

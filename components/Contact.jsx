@@ -54,13 +54,19 @@ export default function Contact() {
                 <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-80">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 pt-8 sm:pt-16 md:pt-20 lg:pt-30 pb-8">
                         <div className="mt-8 mx-4 ">
-                            <h1 className="text-lg sm:text-xl md:text-2xl pb- md:pb-10 text-[#674188]"
+                            {/* <h1 className="text-lg sm:text-xl md:text-2xl pb- md:pb-10 text-[#674188]"
                                 style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                 COMPANY LOGO
-                            </h1>
+                            </h1> */}
+                            <div className="pb-10">
+                                <Image className= " w-[70px] h-[70px]  sm:w-[80px] sm:h-[80px]" src="/sg-logo.png" alt="logo" width={80} height={80} style={{
+                                    filter:
+                                        "brightness(0) saturate(100%) invert(40%) sepia(20%) saturate(1500%) hue-rotate(235deg) brightness(80%) contrast(100%)",
+                                }} />
+                            </div>
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold pb-6 md:pb-10 leading-tight"
                                 style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
-                                WANT TO WORK WITH US?
+                                WANT TO CONTACT WITH US?
                             </h1>
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}

@@ -35,7 +35,7 @@ export default function Carousel() {
                         transition={{ delay: 0.5, duration: 5 }}
                     >
                         <Image
-                            className="h-[50vh]  md:h-[68vh]  object-cover "
+                            className="h-[50vh]  md:h-[68vh]  object-cover  brightness-80"
                             src={slide.src}
                             alt={slide.alt}
                         />

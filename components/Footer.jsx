@@ -6,6 +6,7 @@ import { faFacebook, faInstagram, faYoutube } from "@fortawesome/free-brands-svg
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
     const backgroundImg = assets.footer_img.src
@@ -53,9 +54,13 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div className="px-4">
-                    <h1 className="text-2xl md:text-3xl text-white py-6 md:py-12 text-center" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
+                    {/* <h1 className="text-2xl md:text-3xl text-white py-6 md:py-12 text-center" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                         COMPANY LOGO
-                    </h1>
+                    </h1> */}
+                    <div className=" flex justify-center items-center py-6 md:py-12 ">
+                        <Image className="w-[58px] h-[58px]  md:w-[60px] md:h-[60px]  lg:w-[80px] lg:h-[80px]" src="/sg-logo.png" alt="logo" width={80} height={80} style={{ filter: "brightness(0) invert(1)" }} />
+                    </div>
+
                 </div>
                 <div className="flex justify-center px-4 mb-8">
                     <p className="text-white text-sm md:text-base max-w-[350px] md:max-w-[600px] lg:max-w-[900px] text-center leading-relaxed" style={{ fontFamily: "Verdana" }}>
@@ -85,7 +90,7 @@ export default function Footer() {
                 </div>
                 <div className="text-white text-xs md:text-sm flex flex-col md:flex-row justify-between items-center py-6 px-4 md:px-10 gap-4 lg:mx-30">
                     <p>© 2008–2025 St George Event Management. All Rights Reserved.</p>
-                    <p>Powered by <a href="" className="text-blue-400 hover:text-blue-300">aravindrkrishnan280@gmail.com</a></p>
+                    <p><span className="text-gray-300 text-shadow-blue-500">Powered by </span><b><a href="https://portfolio-virid-one-33.vercel.app/" target="_blank" className="text-[#009075]  hover:underline">FutureFrame Web Innovations</a></b></p>
                 </div>
             </div>
         </div>
