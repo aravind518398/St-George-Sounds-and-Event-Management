@@ -11,11 +11,11 @@ import youtube_icon from './youtube-icon.png';
 import logo_facebook from './logo-facebook.png';
 import beach_wedding from './beach-wedding.jpg';
 import destination_wedding from './destination-wedding.jpg';
-import carousel_one from "./carousel-one.png"
-import carousel_two from './carousel-two.png'
-import carousel_three from './carousel-three.png'
-import carousel_four from './carousel-four.png'
-import carousel_five from './carousel-five.png'
+import carousel_one from "./carousel-one.jpg"
+import carousel_two from './carousel-two.jpg'
+import carousel_three from './carousel-three.jpg'
+import carousel_four from './carousel-four.jpg'
+import carousel_five from './carousel-five.jpg'
 
 
 export const assets = {
