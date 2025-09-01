@@ -253,7 +253,7 @@ export default function Gallery() {
 
     return (
         <>
-            <div className="w-full h-[40vh] md:h-[70vh] bg-transparent relative" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
+            <div className="w-full h-[50vh] md:h-[68vh] bg-transparent relative" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                 <div className="space-y-2 text-[#f1f1f1] absolute bottom-2 md:bottom-30 left-4 md:left-16 lg:left-32 xl:left-80">
                     <motion.h1
                         initial={{ opacity: 0, y: 40 }}
@@ -337,7 +337,7 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
         <>
             {/* Background overlay */}
             <div
-                className="fixed inset-0 bg-black/80 z-20"
+                className="fixed inset-0 bg-black/50 z-20"
                 onClick={handleHide}
             />
 
@@ -351,16 +351,16 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
 
             {/* Navigation arrows */}
             <button
-                onClick={handlePrevious}
-                className="fixed left-4 top-1/2 -translate-y-1/2  bg-[#009075] hover:bg-[#007a62] text-white p-2 rounded-full  transition-colors z-50 w-8 h-15   md:w-10 md:h-20"
-                aria-label="Previous image"
-            >
-                <span className="text-2xl md:text-4xl">&#8249;</span>
-            </button>
+    onClick={handlePrevious}
+    className="fixed left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white p-2 rounded-xl shadow-lg transition-all duration-300 z-50 w-8 h-15 md:w-10 md:h-20"
+    aria-label="Previous image"
+>
+    <span className="text-2xl md:text-4xl">&#8249;</span>
+</button>
 
             <button
                 onClick={handleNext}
-                className="fixed right-4 top-1/2 -translate-y-1/2  bg-[#009075] hover:bg-[#007a62] text-white p-2 rounded-full transition-colors z-50 w-8 h-15   md:w-10 md:h-20"
+                className="fixed right-4 top-1/2 -translate-y-1/2  bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white p-2 rounded-xl shadow-lg transition-all duration-300 z-50 w-8 h-15 md:w-10 md:h-20"
                 aria-label="Next image"
             >
                 <span className="text-2xl md:text-4xl">&#8250;</span>
@@ -378,7 +378,7 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
             </div>
 
             {/* Image counter */}
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 bg-[#009075] text-white px-3 py-1 rounded-full text-sm">
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2  bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white rounded-xl shadow-lg transition-all duration-300 z-50 px-3 py-1  text-sm">
                 {selectedImageIndex + 1} / {images.length}
             </div>
         </>

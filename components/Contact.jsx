@@ -39,7 +39,7 @@ export default function Contact() {
     }
     return (
         <>
-            <div className="w-full h-[40vh] md:h-[70vh] bg-transparent relative" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
+            <div className="w-full h-[50vh] md:h-[68vh] bg-transparent relative" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                 <div className="space-y-2 text-[#f1f1f1] absolute bottom-2 md:bottom-30 left-4 md:left-16 lg:left-32 xl:left-80  ">
                     <motion.h1
                         initial={{ opacity: 0, y: 40 }}
@@ -66,7 +66,7 @@ export default function Contact() {
                             </div>
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold pb-6 md:pb-10 leading-tight"
                                 style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
-                                WANT TO CONTACT WITH US?
+                                WANT TO TOUCH WITH US?
                             </h1>
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}
