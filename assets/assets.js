@@ -1,7 +1,3 @@
-import beautifull_photozone from './beautifull-photozone.jpg';
-import fresh_rose_flowers from './fresh-roses-flowers.jpg';
-import green_garden from './green-garden.jpg';
-import sea_vibe from './sea-vibe.jpg';
 import menu_white from './menu-white.png';
 import traditional_dance from './traditional-dance.jpg';
 import birthday_girl from './birthday-girl.jpg';
@@ -13,14 +9,16 @@ import event_management from './event-management.jpg'
 import insta_icon from './insta-icon.png';
 import youtube_icon from './youtube-icon.png';
 import logo_facebook from './logo-facebook.png';
-
+import beach_wedding from './beach-wedding.jpg';
+import destination_wedding from './destination-wedding.jpg';
+import carousel_one from "./carousel-one.png"
+import carousel_two from './carousel-two.png'
+import carousel_three from './carousel-three.png'
+import carousel_four from './carousel-four.png'
+import carousel_five from './carousel-five.png'
 
 
 export const assets = {
-    beautifull_photozone,
-    fresh_rose_flowers,
-    green_garden,
-    sea_vibe,
     menu_white,
     traditional_dance,
     birthday_girl,
@@ -32,5 +30,11 @@ export const assets = {
     insta_icon,
     youtube_icon,
     logo_facebook,
-
+    beach_wedding,
+    destination_wedding,
+    carousel_one,
+    carousel_two,
+    carousel_three,
+    carousel_four,
+    carousel_five,
 }

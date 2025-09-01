@@ -8,12 +8,12 @@ import Gallery from '../../../components/Gallery'
 import { assets } from '../../../assets/assets'
 
 export default async function GalleryPage() {
-  const sea_vibe = assets.sea_vibe.src;
+  const carousel_five = assets.carousel_five.src;
 
   try {
     return (
       <>
-        <BackgroundImage src={sea_vibe} />
+        <BackgroundImage src={carousel_five} />
         <Navbar />
         <Gallery />
         

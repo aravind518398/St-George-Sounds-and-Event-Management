@@ -6,10 +6,10 @@ import Whatsapp from "../../../components/ui/Whatsapp";
 import { assets } from "../../../assets/assets";
 
 export default function ContactPage() {
-    const event_management = assets.event_management.src;
+    const carousel_four = assets.carousel_four.src;
     return (
         <>
-            <BackgroundImage src={event_management} />
+            <BackgroundImage src={carousel_four} />
             <Navbar />
             <Contact />
             <Footer />

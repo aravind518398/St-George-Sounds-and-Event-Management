@@ -121,7 +121,7 @@ export default function Contact() {
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
                                     alt="YouTube icon"
                                 /></a>
-                                <Link href="/not-found" ><Image
+                                <Link href="https://www.facebook.com/sgeventsaruvithura?mibextid=rS40aB7S9Ucbxw6v" target="_blank" ><Image
                                     src={assets.logo_facebook}
                                     className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition-transform cursor-pointer"
                                     alt="Facebook icon"

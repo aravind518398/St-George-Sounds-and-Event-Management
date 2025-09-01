@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="w-full min-h-screen bg-black/82">
                 <div className="px-4 py-6">
                     <ul className="flex gap-8 md:gap-20 justify-center">
-                        <a target="_blank" href="https://www.instagram.com/s_g_events_aruvithura?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                        <Link target="_blank" href="https://www.instagram.com/s_g_events_aruvithura?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                             <motion.li
                                 initial={{ scale: 1, opacity: 0.5 }}
                                 whileInView={{ opacity: 1 }}
@@ -31,8 +31,8 @@ export default function Footer() {
                             >
                                 <FontAwesomeIcon icon={faInstagram} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
-                        </a>
-                        <a target="_blank" href="https://youtube.com/@sgeventsaruvithura?si=WbLKWy5vTstPPpOS">
+                        </Link>
+                        <Link target="_blank" href="https://youtube.com/@sgeventsaruvithura?si=WbLKWy5vTstPPpOS">
                             <motion.li
                                 initial={{ scale: 1, opacity: 0.5 }}
                                 whileInView={{ opacity: 1 }}
@@ -41,8 +41,8 @@ export default function Footer() {
                             >
                                 <FontAwesomeIcon icon={faYoutube} color="white" size="xl" className="hover:text-purple-400" />
                             </motion.li>
-                        </a>
-                        <Link href="/not-found">
+                        </Link>
+                        <Link href="https://www.facebook.com/sgeventsaruvithura?mibextid=rS40aB7S9Ucbxw6v" target="_blank">
                             <motion.li
                                 initial={{ scale: 1, opacity: 0.5 }}
                                 whileInView={{ opacity: 1 }}

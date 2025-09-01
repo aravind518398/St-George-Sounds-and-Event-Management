@@ -12,10 +12,11 @@ export default function Carousel() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const slides = [
-        { src: assets.sea_vibe, alt: "sea_vibe" },
-        { src: assets.beautifull_photozone, alt: "beautifull_photozone" },
-        { src: assets.fresh_rose_flowers, alt: "fresh_rose_flowers" },
-        { src: assets.green_garden, alt: "green_garden" },
+        { src: assets.carousel_one, alt: "carousel-one" },
+        { src: assets.carousel_two, alt: "carousel-two" },
+        { src: assets.carousel_three, alt: "carousel-three" },
+        { src: assets.carousel_four, alt: "carousel-four" },
+        { src: assets.carousel_five, alt: "carousel-five" },   
     ];
 
     return (
