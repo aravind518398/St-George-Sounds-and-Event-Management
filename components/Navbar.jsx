@@ -17,26 +17,27 @@ export default function Navbar() {
     return (
         <>
             <div className="absolute left-1/2 transform -translate-x-1/2 my-[2%] z-10 w-[100%] max-w-7xl">
-                <div className="flex items-center justify-between px-2 sm:px-4">
-                    <a href={"/"} onClick={() => (location.reload())}>
-                        {/* <h1 className="text-white text-lg sm:text-xl md:text-2xl cursor-pointer whitespace-nowrap" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
-                            COMPANY LOGO
-                        </h1> */}
+                <div className="flex items-center justify-between px-2 sm:px-4 relative">
+                    {/* Logo - Left Side */}
+                    <a href={"/"} onClick={() => (location.reload())} className="flex-shrink-0">
                         <motion.div
                          initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{delay: 0.3, duration: 0.2, type: "spring", stiffness: 100 }}
                         >
-<Image className="w-[50px] h-[50px]  md:w-[60px] md:h-[60px]  lg:w-[80px] lg:h-[80px]" src="/sg-logo.png" alt="logo" width={80} height={80} style={{ filter: "brightness(0) invert(1)" }}/>
+                            <Image className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px]" src="/sg-logo.png" alt="logo" width={80} height={80} style={{ filter: "brightness(0) invert(1)" }}/>
                         </motion.div>
-                        
                     </a>
+
+                    {/* Mobile Navbar Component */}
                     <MobileNavbar isClicked={isClicked} handleClick={handleClick} />
+
+                    {/* Desktop Navigation - Absolutely Centered */}
                     <motion.ul
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.2, type: "spring", stiffness: 100 }}
-                        className="hidden lg:flex gap-6 xl:gap-10 text-[#171717] cursor-pointer bg-white/80 rounded-full px-6 xl:px-12 py-3 text-sm xl:text-base"
+                        className="hidden lg:flex gap-6 xl:gap-10 text-[#171717] cursor-pointer bg-white/80 rounded-full px-6 xl:px-12 py-3 text-sm xl:text-base absolute left-1/2 transform -translate-x-1/2"
                     >
                         <Link href="/">
                             <li className={`transition-colors duration-300 whitespace-nowrap ${pathname === '/'
@@ -71,7 +72,9 @@ export default function Navbar() {
                             </li>
                         </Link>
                     </motion.ul>
-                    <a href="tel:+919567797440">
+
+                    {/* Phone Button - Right Side */}
+                    <a href="tel:+919567797440" className="flex-shrink-0">
                         <motion.button
                             initial={{ y: -100 }}
                             animate={{ y: 0 }}
@@ -79,11 +82,12 @@ export default function Navbar() {
                         >
                             <FontAwesomeIcon icon={faPhone} className="text-shadow-white" style={{ width: "16px" }} />
                             <span className="xl:inline">+91 9567797440</span>
-
                         </motion.button>
                     </a>
-                    <button onClick={handleClick} className="block lg:hidden p-2 ">
-                        <Image src={isClicked ? assets.close_icon : assets.menu_white} alt={isClicked ? "close-icon" : "menu-icon"} className='w-6 h-6 ' />
+
+                    {/* Mobile Menu Button */}
+                    <button onClick={handleClick} className="block lg:hidden p-2 flex-shrink-0">
+                        <Image src={isClicked ? assets.close_icon : assets.menu_white} alt={isClicked ? "close-icon" : "menu-icon"} className='w-6 h-6' />
                     </button>
                 </div>
             </div>
@@ -100,31 +104,37 @@ export function MobileNavbar({ isClicked, handleClick }) {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -25, opacity: 0 }}
                 transition={{ duration: 1 }}
-
                 className={`lg:hidden absolute top-15 left-0 w-full text-white ${isClicked ? "" : "hidden"}`}>
                 <ul className="w-full">
-                    <Link onClick={handleClick} href={"/"} className="block w-full "><li className={`w-full p-3 ${pathname === '/'
-                        ? 'text-[#780794dc] font-semibold bg-white/60'
-                        : 'hover:text-[#780794dc]/80   bg-black/60 hover:bg-white/70'
-                        }`}>HOME</li></Link>
-                    <Link onClick={handleClick} href={"/about"} className="block w-full"><li className={`w-full p-3 ${pathname === '/about'
-                        ? 'text-[#780794dc] font-semibold bg-white/60'
-                        : 'hover:text-[#780794dc]/80  bg-black/60 hover:bg-white/70'
-                        }`}>ABOUT</li></Link>
-                    <Link onClick={handleClick} href={"/gallery"} className="block w-ful"><li className={`w-full p-3 ${pathname === '/gallery'
-                        ? 'text-[#780794dc] font-semibold bg-white/60'
-                        : 'hover:text-[#780794dc]/80  bg-black/60 hover:bg-white/70'
-                        }`}>GALLERY</li></Link>
-                    <Link onClick={handleClick} href={"/contact"} className="block w-full "><li className={`w-full p-3 ${pathname === '/contact'
-                        ? 'text-[#780794dc] font-semibold bg-white/60'
-                        : 'hover:text-[#780794dc]/80  bg-black/60 hover:bg-white/70'
-                        }`}>CONTACT</li></Link>
+                    <Link onClick={handleClick} href={"/"} className="block w-full">
+                        <li className={`w-full p-3 ${pathname === '/'
+                            ? 'text-[#780794dc] font-semibold bg-white/60'
+                            : 'hover:text-[#780794dc]/80 bg-black/60 hover:bg-white/70'
+                            }`}>HOME</li>
+                    </Link>
+                    <Link onClick={handleClick} href={"/about"} className="block w-full">
+                        <li className={`w-full p-3 ${pathname === '/about'
+                            ? 'text-[#780794dc] font-semibold bg-white/60'
+                            : 'hover:text-[#780794dc]/80 bg-black/60 hover:bg-white/70'
+                            }`}>ABOUT</li>
+                    </Link>
+                    <Link onClick={handleClick} href={"/gallery"} className="block w-full">
+                        <li className={`w-full p-3 ${pathname === '/gallery'
+                            ? 'text-[#780794dc] font-semibold bg-white/60'
+                            : 'hover:text-[#780794dc]/80 bg-black/60 hover:bg-white/70'
+                            }`}>GALLERY</li>
+                    </Link>
+                    <Link onClick={handleClick} href={"/contact"} className="block w-full">
+                        <li className={`w-full p-3 ${pathname === '/contact'
+                            ? 'text-[#780794dc] font-semibold bg-white/60'
+                            : 'hover:text-[#780794dc]/80 bg-black/60 hover:bg-white/70'
+                            }`}>CONTACT</li>
+                    </Link>
                 </ul>
             </motion.div>}
         </AnimatePresence>
     )
 }
-
 
 
 
