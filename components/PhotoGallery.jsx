@@ -62,7 +62,7 @@ return (
             
             
         </div>
-        <div className="flex justify-center pt-18 mb-10">
+        <div className="flex justify-center pt-10 mb-10">
                             <Image src="/violet-design.svg" alt="violet-design" width={300} height={1} />
                         </div>
     </div>

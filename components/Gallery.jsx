@@ -56,16 +56,28 @@ export default function Gallery() {
                 return;
             }
 
-            const urls = data.map((file) => {
-                const { data: publicUrl } = supabase
-                    .storage
-                    .from("photo-gallery")
-                    .getPublicUrl(file.name);
+            if (!data || data.length === 0) {
+                setImages([]);
+                return;
+            }
 
-                return publicUrl.publicUrl;
-            });
+            const urls = data
+                // only allow real image files
+                .filter((file) => file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i))
+                .map((file) => {
+                    const { data: publicUrl } = supabase
+                        .storage
+                        .from("photo-gallery")
+                        .getPublicUrl(file.name);
+
+                    return publicUrl?.publicUrl || null;
+                })
+                .filter(Boolean); // remove nulls
+
             setImages(urls);
         };
+
+
 
         const fetchVideos = async () => {
             const { data, error } = await supabase.from("youtube-videos").select("*");
@@ -126,28 +138,32 @@ export default function Gallery() {
                         >
                             {isLoading ? (
                                 <p>Loading....</p>
+                            ) : currentData?.length === 0 ? (
+                                <p>No images found</p>
                             ) : (
-                                currentData?.map((url, i) => (
-                                    <motion.div
-                                        variants={item}
-
-                                        key={i}
-                                        className="w-full sm:h-52 md:h-56 lg:h-56 rounded-2xl overflow-hidden cursor-pointer  bg-gradient-to-l  from-purple-700 to-black "
-                                    >
-                                        <Image
-                                            onClick={() => handleShow(i)}
-                                            src={url}
-                                            alt={`Photo ${i + 1}`}
-                                            width={600}
-                                            height={400}
-                                            quality={100}
-                                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
-                                            className="w-full h-full object-cover rounded-2xl  "
-                                        />
-                                    </motion.div>
-                                ))
+                                currentData.map((url, i) =>
+                                    url ? ( // only render if url is valid
+                                        <motion.div
+                                            variants={item}
+                                            key={i}
+                                            className="w-full sm:h-52 md:h-56 lg:h-56 rounded-2xl overflow-hidden cursor-pointer bg-gradient-to-l from-purple-700 to-black"
+                                        >
+                                            <Image
+                                                onClick={() => handleShow(i)}
+                                                src={url}
+                                                alt={`Photo ${i + 1}`}
+                                                width={600}
+                                                height={400}
+                                                quality={100}
+                                                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
+                                                className="w-full h-full object-cover rounded-2xl"
+                                            />
+                                        </motion.div>
+                                    ) : null
+                                )
                             )}
                         </motion.div>
+
                         {images.length > 0 && (
                             <PopupImage
                                 show={show}
@@ -175,7 +191,7 @@ export default function Gallery() {
                                     <motion.div
                                         variants={item}
                                         key={i} className="w-full aspect-video rounded-2xl overflow-hidden  bg-gradient-to-l  from-purple-700 to-black shadow-lg"
-                                        
+
                                     >
                                         <iframe
                                             src={`https://www.youtube.com/embed/${video.url}`}
@@ -351,12 +367,12 @@ export function PopupImage({ show, setShow, selectedImageIndex, setSelectedImage
 
             {/* Navigation arrows */}
             <button
-    onClick={handlePrevious}
-    className="fixed left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white p-2 rounded-xl shadow-lg transition-all duration-300 z-50 w-8 h-15 md:w-10 md:h-20"
-    aria-label="Previous image"
->
-    <span className="text-2xl md:text-4xl">&#8249;</span>
-</button>
+                onClick={handlePrevious}
+                className="fixed left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 text-white p-2 rounded-xl shadow-lg transition-all duration-300 z-50 w-8 h-15 md:w-10 md:h-20"
+                aria-label="Previous image"
+            >
+                <span className="text-2xl md:text-4xl">&#8249;</span>
+            </button>
 
             <button
                 onClick={handleNext}
