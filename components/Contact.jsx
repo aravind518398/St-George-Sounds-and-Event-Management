@@ -83,7 +83,7 @@ export default function Contact() {
                                     <h3 className="text-sm sm:text-base" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                                         TALK TO OUR SUPPORT TEAM
                                         <br />
-                                        <a href="tel: +919567797440"><span className="font-bold text-base sm:text-lg">+91-9567797440</span></a>
+                                        <a href="tel: +919961020996"><span className="font-bold text-base sm:text-lg">+91-9961020996</span></a>
                                     </h3>
                                 </div>
                             </motion.div>

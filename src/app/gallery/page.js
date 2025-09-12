@@ -16,7 +16,6 @@ export default async function GalleryPage() {
         <BackgroundImage src={carousel_five} />
         <Navbar />
         <Gallery />
-        
         <Footer />
         <Whatsapp />
       </>

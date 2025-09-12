@@ -74,14 +74,14 @@ export default function Navbar() {
                     </motion.ul>
 
                     {/* Phone Button - Right Side */}
-                    <a href="tel:+919567797440" className="flex-shrink-0">
+                    <a href="tel:+919961020996" className="flex-shrink-0">
                         <motion.button
                             initial={{ y: -100 }}
                             animate={{ y: 0 }}
                             className="hidden lg:flex justify-center items-center bg-gradient-to-br from-[#a920cb]/80 to-[#450255]/80 text-[#ededed] rounded-3xl px-3 xl:px-5 py-2 gap-1 border hover:from-[#450255]/80 hover:to-[#a920cb]/80 transition-all duration-500 text-sm xl:text-base whitespace-nowrap"
                         >
                             <FontAwesomeIcon icon={faPhone} className="text-shadow-white" style={{ width: "16px" }} />
-                            <span className="xl:inline">+91 9567797440</span>
+                            <span className="xl:inline">+91 9961020996</span>
                         </motion.button>
                     </a>
 

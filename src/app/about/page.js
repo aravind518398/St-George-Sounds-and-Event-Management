@@ -1,6 +1,5 @@
 import Link from "next/link";
 import PhotoGallery from "../../../components/PhotoGallery";
-import Navbar from "../../../components/Navbar";
 
 
 
@@ -8,8 +7,7 @@ export default function AboutPage() {
 
   return (
     <>
-
-      <div className="  ">
+      <div>
         <PhotoGallery />
       </div>
       <div className="flex flex-col items-center justify-center p-6">

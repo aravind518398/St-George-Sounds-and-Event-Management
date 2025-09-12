@@ -48,7 +48,7 @@ export default function StatsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center px-4 sm:px-8 lg:px-20 py-10" >
             <div className=" py-2  lg:py-16">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
-                    <AnimatedCounter targetValue={15} suffix="+" />
+                    <AnimatedCounter targetValue={12} suffix="+" />
                 </h1>
                 <span className="text-base sm:text-lg lg:text-2xl">Years of Experience</span>
             </div>

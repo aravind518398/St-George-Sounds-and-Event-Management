@@ -8,8 +8,14 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+    const [currectYear, SetCurrentYear] = useState();
+    useEffect(()=> {
+        SetCurrentYear(new Date().getFullYear())
+    },[])
+    
     const backgroundImg = assets.footer_img.src
     return (
         <div className="w-full min-h-screen"
@@ -81,16 +87,16 @@ export default function Footer() {
                     />
                     <FooterTable
                         heading={"CONTACT INFO"}
-                        items={["Email: stgeorgesoundsites@gmail.com", "Phone: +919567797440", "Address: Aruvithura, Kottayam, Erattupetta, Kerala 686122"]}
+                        items={["Email: stgeorgesoundsites@gmail.com", "Phone: +919961020996", "Address: Aruvithura, Kottayam, Erattupetta, Kerala 686122"]}
                     />
                 </div>
                 <div className="mx-4 md:mx-10 mt-8">
                     <hr className="border-white/30" />
                     <div className="py-4 md:py-6">
                         <ul className="text-white flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 text-sm">
-                            <a href="tel:+919567797440"><li className="flex items-center gap-2 cursor-pointer " >
+                            <a href="tel:+919961020996"><li className="flex items-center gap-2 cursor-pointer " >
                                 <FontAwesomeIcon icon={faPhone} color="white" />
-                                +91-9567797440
+                                +91-9961020996
                             </li></a>
                             <li className="flex items-center gap-2 cursor-pointer">
                                 <FontAwesomeIcon icon={faEnvelope} color="white" />
@@ -101,7 +107,7 @@ export default function Footer() {
                     <hr className="border-white/30" />
                 </div>
                 <div className="text-white text-xs md:text-sm flex flex-col md:flex-row justify-between items-center py-6 px-4 md:px-10 gap-4 lg:mx-30">
-                    <p>© 2008–2025 St George Event Management. All Rights Reserved.</p>
+                    <p>© 2013–{currectYear} St George Event Management. All Rights Reserved.</p>
                     <p><span className="text-gray-300 text-shadow-blue-500">Powered by </span><b><a href="https://portfolio-virid-one-33.vercel.app/" target="_blank" className="text-[#009075]  hover:underline">FutureFrame Web Innovations</a></b></p>
                 </div>
             </div>

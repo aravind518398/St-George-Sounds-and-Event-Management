@@ -18,8 +18,6 @@ export default function Youtube() {
           console.log(error);
         } else {
           setVideos(data);
-          console.log(data);
-
           setIsLoading(false);
         }
       } catch (err) {

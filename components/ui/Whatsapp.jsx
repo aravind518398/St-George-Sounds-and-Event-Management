@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Whatsapp() {
 
   const handleClick = () => {
-    const phoneNumber = "919567797440";
+    const phoneNumber = "918281970996";
     const message = "Hi";
     const encodedMessage = encodeURIComponent(message);
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
