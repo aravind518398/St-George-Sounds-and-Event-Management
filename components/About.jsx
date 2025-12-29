@@ -71,10 +71,10 @@ export default function About() {
                     {/* Placeholder Image */}
                     <div className="flex-shrink-0 w-full md:w-[350px]">
                         <Image
-                            className="w-full h-[300px] md:h-[430px] rounded-lg shadow-lg object-cover"
+                            className="w-full h-[600px] md:h-[430px] rounded-lg shadow-lg object-cover"
                             src={assets.ower_photo}
                             width={350}
-                            height={430}
+                            height={600}
                             alt="Owner-Image"
                         />
                     </div>

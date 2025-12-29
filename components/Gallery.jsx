@@ -18,6 +18,16 @@ export default function Gallery() {
     const [show, setShow] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
+    const retry = async (fn, retries = 3, delay = 2000) => {
+        for (let i = 0; i < retries; i++) {
+            const result = await fn();
+            if (!result?.error) return result;
+            await new Promise(r => setTimeout(r, delay));
+        }
+        return fn(); // last try
+    };
+
+
     const handleShow = (index) => {
         setSelectedImageIndex(index);
         setShow(true);
@@ -47,37 +57,31 @@ export default function Gallery() {
 
     useEffect(() => {
         const fetchImages = async () => {
-            const { data, error } = await supabase.storage
-                .from("photo-gallery")
-                .list();
+            const { data, error } = await retry(() =>
+                supabase.storage.from("photo-gallery").list()
+            );
 
             if (error) {
-                console.error("Error listing images:", error);
-                return;
-            }
-
-            if (!data || data.length === 0) {
+                console.error("Storage error:", error.message);
                 setImages([]);
                 return;
             }
 
             const urls = data
-                // only allow real image files
-                .filter((file) => file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i))
-                .map((file) => {
-                    const { data: publicUrl } = supabase
-                        .storage
+                ?.filter(file => file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i))
+                .map(file =>
+                    supabase.storage
                         .from("photo-gallery")
-                        .getPublicUrl(file.name);
+                        .getPublicUrl(file.name).data.publicUrl
+                )
+                .filter(Boolean);
 
-                    return publicUrl?.publicUrl || null;
-                })
-                .filter(Boolean); // remove nulls
-
-            setImages(urls);
+            setImages(urls || []);
         };
 
 
+
+        supabase.from("youtube-videos").select("id").limit(1);
 
         const fetchVideos = async () => {
             const { data, error } = await supabase.from("youtube-videos").select("*");
@@ -111,17 +115,28 @@ export default function Gallery() {
 
         const fetchAllData = async () => {
             setIsLoading(true);
-            await Promise.all([
-                fetchImages(),
-                fetchVideos(),
-                fetchShorts(),
-                fetchAlbums()
-            ]);
+            // await Promise.all([
+
+            // ]);
+            fetchImages()
+            fetchVideos()
+            fetchShorts()
+            fetchAlbums()
+
             setIsLoading(false);
         };
 
         fetchAllData();
     }, []);
+
+    // useEffect(() => {
+    //     if (!images.length) {
+    //         const t = setTimeout(fetchImages, 4000);
+    //         return () => clearTimeout(t);
+    //     }
+    // }, [images]);
+
+
 
     const renderContent = () => {
         const currentData = tabs.find(tab => tab.id === activeTab)?.data || [];
