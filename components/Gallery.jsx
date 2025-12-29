@@ -305,13 +305,13 @@ export default function Gallery() {
                 <p className="" style={{ fontFamily: "Verdana, Geneva, sans-serif" }}>
                     Please note that we have only showcased a few photos here due to our company policy limitations. However, if you wish to explore our extensive collection, which includes our latest designs, decorations, wedding dance videos, other entertainment, recent wedding photos, and new trends in decorations and other event aspects, kindly contact us or send us a message on WhatsApp or Gmail. We have a dedicated team available to promptly respond to your inquiries, provide additional photos, and address any clarifications you may have. So, don't hesitate; send us a message now! <Link href={"/contact"}><span className="text-purple-800">Contact</span></Link>
                 </p>
-                <div className="py-20">
+                <div className="py-20 ">
                     <ul className="flex gap-4 md:gap-10">
                         {tabs.map((tab) => (
                             <li key={tab.id}>
                                 <button
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`rounded-xl md:rounded-full py-1.5 px-1 md:px-3 md:py-1.5 cursor-pointer transition-colors duration-200 ${activeTab === tab.id
+                                    className={`border-2 border-[#674188] rounded-xl md:rounded-full py-1.5 px-1 md:px-3 md:py-1.5 cursor-pointer transition-colors duration-200  ${activeTab === tab.id
                                         ? 'bg-[#674188] text-white'
                                         : 'bg-[#f1f1f1] text-[#171717] hover:bg-[#674188] hover:text-[#f1f1f1]'
                                         }`}
