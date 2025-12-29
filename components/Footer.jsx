@@ -108,7 +108,7 @@ export default function Footer() {
                 </div>
                 <div className="text-white text-xs md:text-sm flex flex-col md:flex-row justify-between items-center py-6 px-4 md:px-10 gap-4 lg:mx-30">
                     <p>© 2013–{currectYear} St George Event Management. All Rights Reserved.</p>
-                    <p><span className="text-gray-300 text-shadow-blue-500">Powered by </span><b><a href="https://portfolio-virid-one-33.vercel.app/" target="_blank" className="text-[#009075]  hover:underline">FutureFrame Web Innovations</a></b></p>
+                    <p><span className="text-gray-300 text-shadow-blue-500">Created by </span><b><a href="https://portfolio-virid-one-33.vercel.app/" target="_blank" className="text-[#009075]  hover:underline">Aravind</a></b></p>
                 </div>
             </div>
         </div>

@@ -11,11 +11,14 @@ export default function Whatsapp() {
     const encodedMessage = encodeURIComponent(message);
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-    if (isMobile) {
-      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
-    } else {
-      window.open(`https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`, "_blank");
-    }
+  if (isMobile) {
+  window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+} else if (navigator.platform.includes("Mac") || navigator.platform.includes("Win")) {
+  // Just try to open desktop app, no fallback
+  window.location.href = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
+} else {
+  window.open(`https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`, "_blank");
+}
   };
 
   return (

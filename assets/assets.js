@@ -16,6 +16,8 @@ import carousel_two from './carousel-two.jpg'
 import carousel_three from './carousel-three.jpg'
 import carousel_four from './carousel-four.jpg'
 import carousel_five from './carousel-five.jpg'
+import ower_photo from './ower-photo.jpg'
+import ower_cover_photo from './ower-cover-photo.webp'
 
 
 export const assets = {
@@ -37,4 +39,6 @@ export const assets = {
     carousel_three,
     carousel_four,
     carousel_five,
+    ower_photo,
+    ower_cover_photo,
 }

@@ -1,28 +1,24 @@
 import Link from "next/link";
 import PhotoGallery from "../../../components/PhotoGallery";
+import BackgroundImage from "../../../components/ui/BackgroundImage";
+import { assets } from "../../../assets/assets";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import Whatsapp from "../../../components/ui/Whatsapp";
+
+import About from "../../../components/About";
 
 
 
 export default function AboutPage() {
-
+ const carousel_four = assets.ower_cover_photo.src;
   return (
     <>
-      <div>
-        <PhotoGallery />
-      </div>
-      <div className="flex flex-col items-center justify-center p-6">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">🚧 Page Under Maintenance 🚧</h1>
-        <p className="text-gray-600 mb-6">
-          This demo page is currently under maintenance. Please check back later.
-        </p>
-
-        <Link
-          href="/gallery"
-          className="px-4 py-2 bg-purple-800 text-white rounded-lg shadow hover:bg-purple-900 transition"
-        >
-          Go Back
-        </Link>
-      </div>
+     <BackgroundImage src={carousel_four} />
+       <Navbar />
+        <About />
+        <Footer />
+        <Whatsapp />
     </>
 
   );
